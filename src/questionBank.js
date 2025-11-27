@@ -18,6 +18,8 @@ const TOKEN_TYPES = {
     // Contenu
     TEXT: 'TEXT',                   // Tout contenu textuel entre les délimiteurs
 };
+
+
 export async function importBank(pathOrDir) {
   const resolved = path.resolve(pathOrDir);
   const questions = [];
@@ -64,12 +66,86 @@ export async function importBank(pathOrDir) {
  * - renvoie un tableau d'objets question
 
  */
-export function parseGift() {
+export function parseGift(text, sourceName = "unknown") {
+  const tokens = tokenizeGift(text);
+  const questions = [];
+  let current = 0;
   
+  function peek() { //renvoie le token courant sans l'avancer
+    return tokens[current];
+  }
+  function advance() { //renvoie le token courant et avance
+    const token = tokens[current];
+    current++;
+    return token;
+  }
+
+  //consomme le token courant s'il correspond au type attendu, sinon lève une erreur 
+  function consume(expectedType, errorMessage) { 
+      const token = tokens[current];
+      if (!token) {
+        throw new Error(`Parse error at token ${current}: ${errorMessage}. Found end of input.`);
+      }
+      if (token.type === expectedType) {
+        current++;
+        return token;
+      }else {
+        throw new Error(`Parse error at token ${current}: ${errorMessage}. Found ${token.type} (${token.value})`);
+      }
+  }
+  function collectTextUntil(delimiterTypes) {
+    let text = [];
+    while (peek() && peek().type !== delimiterTypes) {
+        if (peek().type === TOKEN_TYPES.TEXT) {
+          text.push(advance().value);
+        } else if (peek().type === TOKEN_TYPES.CRLF) {
+          advance(); // Ignorer les sauts de ligne
+        } else {
+          throw new Error(`Unexpected token at position ${current}: ${peek().type} (${peek().value})`);
+          break;
+        }
+    }
+    return text.join(' ').trim();
+  }
+  // Fonction pour parser une question complète
+  function parseQuestion() {
+    let question = {id: null, text: '', choices: [], feedback: null, type: ''};
+    if (peek().type === TOKEN_TYPES.ID_DELIMITER) {
+      consume(TOKEN_TYPES.ID_DELIMITER, "Expected question ID delimiter '::'");
+      question.id = collectTextUntil(TOKEN_TYPES.START_BLOCK);
+  }
+}
+  // Fonction pour parser les choix de réponses
+  function parseChoices() {
+    
+  }
+  //Boucle principale de parsing
+
+  while(peek()) {
+    try {
+      if (peek().type === TOKEN_TYPES.ID_DELIMITER) {// Début d'une nouvelle question
+        questions.push(parseQuestion()); // Appel à une fonction pour parser une question complète et l'ajouter au tableau
+      } else if (peek().type === TOKEN_TYPES.CRLF) {
+        advance(); // Ignorer les sauts de ligne
+      } else {
+        throw new Error(`Unexpected token at position ${current}: ${peek().type} (${peek().value})`);
+      }
+      
+    } catch (error) {
+      console.error(`Erreur de parsing dans le fichier ${sourceName}: ${error.message}`); 
+      break; // Sortir de la boucle en cas d'erreur   
+    }
+  }
+  return questions;
 }
 
+
+  
+
+
+
 // lexer GIFT pour faire fonctionner le parseur
-function tokenizeGift(text) {
+function tokenizeGift(text) { //prend en entrée le texte GIFT brut et renvoie une liste de tokens
   const tokens = [];
   const DELIMITER_REGEX = /(\r?\n|::|\{|\}|=|~|#)/g; // Expressions régulières des délimiteurs GIFT
   let lastIndex = 0;
