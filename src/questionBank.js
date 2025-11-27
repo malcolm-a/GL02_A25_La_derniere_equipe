@@ -2,12 +2,28 @@
 import path from "path";
 import { readDirFilesUtf8, readFileUtf8 } from "./utils/io.js";
 
+// Obje
+const TOKEN_TYPES = {
+    // Structure
+    ID_DELIMITER: 'ID_DELIMITER',   // ::
+    START_BLOCK: 'START_BLOCK',     // {
+    END_BLOCK: 'END_BLOCK',         // }
+    CRLF: 'CRLF',                   // Saut de ligne (\r?\n)
+
+    // Réponses/Commentaires
+    CORRECT: 'CORRECT',             // =
+    INCORRECT: 'INCORRECT',         // ~
+    FEEDBACK: 'FEEDBACK',           // # (pour le commentaire général ou spécifique)
+
+    // Contenu
+    TEXT: 'TEXT',                   // Tout contenu textuel entre les délimiteurs
+};
 export async function importBank(pathOrDir) {
   const resolved = path.resolve(pathOrDir);
   const questions = [];
 
   try {
-    const files = await readDirFilesUtf8(resolved, ".gift");
+    const files = await readDirFilesUtf8(resolved, ".gift"); 
     if (files.length >0 ) { //si c'est un dossier
       for (const file of files) {
         const content = file.content; // Lire le contenu du fichier
@@ -51,6 +67,57 @@ export async function importBank(pathOrDir) {
 export function parseGift() {
   
 }
+
+// lexer GIFT pour faire fonctionner le parseur
+function tokenizeGift(text) {
+  const tokens = [];
+  const DELIMITER_REGEX = /(\r?\n|::|\{|\}|=|~|#)/g; // Expressions régulières des délimiteurs GIFT
+  let lastIndex = 0;
+  let match;  
+
+  while ((match = DELIMITER_REGEX.exec(text)) !== null) { // Trouver chaque délimiteur
+    const delimiter = match[0];
+    const textBefore = text.substring(lastIndex, match.index);
+
+     if (textBefore.trim() !== '') {
+      tokens.push({ type: TOKEN_TYPES.TEXT, value: textBefore.trim() });
+    }
+    switch (delimiter) {
+      case '::':
+        tokens.push({ type: TOKEN_TYPES.ID_DELIMITER, value: delimiter });  
+        break;
+      case '{':
+        tokens.push({ type: TOKEN_TYPES.START_BLOCK, value: delimiter });
+        break;
+      case '}':
+        tokens.push({ type: TOKEN_TYPES.END_BLOCK, value: delimiter });
+        break; 
+      case '=':
+        tokens.push({ type: TOKEN_TYPES.CORRECT, value: delimiter });
+        break;
+      case '~':
+        tokens.push({ type: TOKEN_TYPES.INCORRECT, value: delimiter });
+        break;
+      case '#':
+        tokens.push({ type: TOKEN_TYPES.FEEDBACK, value: delimiter });
+        break;
+    default:
+        if (delimiter.includes('\n')) {
+          tokens.push({ type: TOKEN_TYPES.CRLF, value: delimiter });
+        }
+        break;
+    }
+   
+  }
+   lastIndex = DELIMITER_REGEX.lastIndex;
+    remainingText = text.substring(lastIndex);
+    if (remainingText.trim() !== '') {
+      tokens.push({ type: TOKEN_TYPES.TEXT, value: remainingText.trim() });
+    }
+  return tokens;
+}
+
+
 
 /**
  * searchByKeyword(bank, keyword)
