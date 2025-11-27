@@ -7,9 +7,6 @@ import { readDirFilesUtf8, readFileUtf8 } from "./utils/io.js";
  * - si c'est un fichier : lit le fichier
  * renvoie { questions: [ { id, title, text, choices, type, raw } ] }
  */
-export async function importBank(pathOrDir) {
-
-}
 
 /**
  * parseGift(text, sourceName)
