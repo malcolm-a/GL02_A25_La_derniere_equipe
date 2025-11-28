@@ -109,16 +109,104 @@ export function parseGift(text, sourceName = "unknown") {
   }
   // Fonction pour parser une question complète
   function parseQuestion() {
-    let question = {id: null, text: '', choices: [], feedback: null, type: ''};
+    let question = {id: null, text: '', choices: [], feedback: null, type: ''}; // creer un objet question vide
+
+    // Parser l'ID de la question si présent
     if (peek().type === TOKEN_TYPES.ID_DELIMITER) {
       consume(TOKEN_TYPES.ID_DELIMITER, "Expected question ID delimiter '::'");
-      question.id = collectTextUntil(TOKEN_TYPES.START_BLOCK);
-  }
-}
-  // Fonction pour parser les choix de réponses
-  function parseChoices() {
+      question.id = collectTextUntil(TOKEN_TYPES.ID_DELIMITER);
+      consume(TOKEN_TYPES.ID_DELIMITER, "Expected question ID delimiter '::' after question ID");
+    }
+    question.text = collectTextUntil(TOKEN_TYPES.START_BLOCK);
+    consume(TOKEN_TYPES.START_BLOCK, "Expected start of answer block '{'");
+
+    // Parser les choix de réponses
+    question.choices = parseChoices();
+    question.type = determineQuestionType(question.choices.options);
+    return question;
     
   }
+
+  // Fonction pour parser les choix de réponses
+  function parseChoices() {
+    let choices = [];
+    let generalFeedback = null;
+    while(peek() && peek().type !== TOKEN_TYPES.END_BLOCK) {
+
+      if (peek().type === TOKEN_TYPES.CRLF){ // Saut de ligne
+        advance(); // Ignorer les sauts de ligne
+        continue;
+      }
+
+      let choice = {text: '', correct: false, feedback: null, }; // Créer un objet choix vide
+      if (peek().type === TOKEN_TYPES.CORRECT || peek().type === TOKEN_TYPES.INCORRECT) { // Réponse correcte ou incorrecte
+        
+        // Déterminer si la réponse est correcte ou incorrecte
+        let isCorrect = (peek().type === TOKEN_TYPES.CORRECT);
+        choice.correct = isCorrect;
+        consume(isCorrect ? TOKEN_TYPES.CORRECT : TOKEN_TYPES.INCORRECT, `Expected answer delimiter '${isCorrect ? '=' : '~'}'`); // Consommer le token '=' ou '~'
+        let line = collectTextUntil(TOKEN_TYPES.CRLF);
+
+        // Vérifier la présence d'un feedback spécifique
+        let indexFeedback;
+        indexFeedback = line.indexOf('#');
+        if (indexFeedback !== -1) { // Il y a un feedback spécifique
+          choice.text = line.substring(0, indexFeedback).trim();
+          choice.feedback = line.substring(indexFeedback + 1).trim();
+        }else {
+          choice.text = line; // Pas de feedback spécifique
+        }
+
+
+        choices.push(choice); // Ajouter le choix au tableau des choix
+        consume(TOKEN_TYPES.CRLF, "Expected end of line after answer text");
+
+      }
+
+      /*  
+        if (peek().type === TOKEN_TYPES.CORRECT) { // Réponse correcte
+          choice.correct = true;
+          consume(TOKEN_TYPES.CORRECT, "Expected correct answer '='"); // Consommer le token '='
+          choice.text = collectTextUntil(TOKEN_TYPES.CRLF);
+          consume(TOKEN_TYPES.CRLF, "Expected end of line after answer text");
+          choices.push(choice);
+          continue;
+
+        } 
+        if (peek().type === TOKEN_TYPES.INCORRECT) { // Réponse incorrecte
+          choice.correct = false;
+          consume(TOKEN_TYPES.INCORRECT, "Expected incorrect answer '~'"); // Consommer le token '~'
+          choice.text = collectTextUntil(TOKEN_TYPES.CRLF);
+          consume(TOKEN_TYPES.CRLF, "Expected end of line after answer text");
+          choices.push(choice);
+          continue;
+        }
+      }
+      */
+     if (peek().type === TOKEN_TYPES.FEEDBACK) { // Feedback général pour la question
+        consume(TOKEN_TYPES.FEEDBACK, "Expected feedback delimiter '#'");
+        generalFeedback = collectTextUntil(TOKEN_TYPES.END_BLOCK);
+        break; // Sortir de la boucle après le feedback général 
+      }
+
+      if(peek().type === TOKEN_TYPES.END_BLOCK) {
+        break; // Sortir si on atteint la fin du bloc
+      }
+      throw new Error(`Unexpected token at position ${current}: ${peek().type} (${peek().value})`);
+    
+    }
+    consume(TOKEN_TYPES.END_BLOCK, "Expected end of answer block '}'");
+    return { options: choices, feedback: generalFeedback };;
+  }
+
+  function determineQuestionType(options) {
+    if (!options || options.length ===0) {
+      return 'unknown';
+    }
+    return 'QCM'; // Pour l'instant, on considère toutes les questions comme des QCM
+  }
+
+
   //Boucle principale de parsing
 
   while(peek()) {
