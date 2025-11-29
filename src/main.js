@@ -13,10 +13,17 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_BANK_PATH = path.join(__dirname, "../SujetB_Data");
 
 async function main() {
+  let qtrouvee = [];
+
   console.log(chalk.green("=== démarrage ==="));
   // Charger la banque
   const bank = await importBank(DEFAULT_BANK_PATH);
 
+
+  console.log("DEBUG: Nombre de questions chargées :", bank.questions.length);
+  if (bank.questions.length > 0) {
+      console.log("DEBUG: Exemple de question 1 :", JSON.stringify(bank.questions[0], null, 2));
+  }
   // Attente des commandes de l'utilisateur 
   while (true) {
     const { action } = await inquirer.prompt({
@@ -46,7 +53,8 @@ async function main() {
         name: "keyword",
         message: "Mot-clé :"
       });
-      searchByKeyword(bank, keyword);
+      qtrouvee = searchByKeyword(bank, keyword);
+      displayResults(qtrouvee);
    
 
 
