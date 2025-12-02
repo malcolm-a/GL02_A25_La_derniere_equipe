@@ -5,7 +5,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
 import { showError, showSuccess } from "./utils/show.js";
-import { generateVcard, displayVcard } from "./vcardGenerator.js";
+import { generateVcard } from "./vcardGenerator.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,7 +90,7 @@ async function main() {
         {
           type: "input",
           name: "pathname",
-          message: "Entrez le chemin vers lequel vous voulez enregistrer votre fichier. Veillez à ne pas faire de fautes:"
+          message: "Entrez le chemin vers le dossier sur lequel vous voulez enregistrer votre fichier. Veillez à ne pas faire de fautes:"
         }
       ]);
       console.log(generateVcard(teacher));

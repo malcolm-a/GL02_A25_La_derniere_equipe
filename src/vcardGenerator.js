@@ -16,9 +16,5 @@ export function generateVcard (teacher) {
     fs.writeFile(path.join(teacher.pathname, filename), content, (err) => {
         if (err) throw err;
     });
-    return `Fichier VCard enregistré avec succès vers ${path.join(teacher.pathname, filename)}.\n`
-};
-
-export function displayVcard () {
-
+    return `\nFichier VCard enregistré avec succès vers ${path.join(teacher.pathname, filename)}.\n`
 };
