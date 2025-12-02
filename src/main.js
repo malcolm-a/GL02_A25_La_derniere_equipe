@@ -65,35 +65,35 @@ async function main() {
         {
           type: "input",
           name: "nom",
-          message: "Entrez votre nom: (obligatoire)"
+          message: "[Obligatoire] Entrez votre nom:"
         },
         {
           type: "input",
           name: "prenom",
-          message: "Entrez votre prénom: (obligatoire)"
+          message: "[Obligatoire] Entrez votre prénom:"
         },
         {
           type: "input",
           name: "org",
-          message: "Entrez votre organisation: (obligatoire)"
+          message: "[Facultatif] Entrez votre organisation:"
         },
         {
           type: "input",
           name: "email",
-          message: "Entrez votre e-mail: (obligatoire)"
+          message: "[Facultatif] Entrez votre e-mail:"
         },
         {
           type: "input",
           name: "tel",
-          message: "Entrez votre numéro de téléphone: (obligatoire)"
+          message: "[Facultatif] Entrez votre numéro de téléphone:"
         },
         {
           type: "input",
           name: "pathname",
-          message: "Entrez le chemin vers lequel vous voulez enregistrer votre fichier: (Veillez à ne pas faire de fautes)"
+          message: "Entrez le chemin vers lequel vous voulez enregistrer votre fichier. Veillez à ne pas faire de fautes:"
         }
       ]);
-      generateVcard(teacher);
+      console.log(generateVcard(teacher));
     }
   }
 }
