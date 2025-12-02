@@ -61,7 +61,7 @@ async function main() {
       displayQuestion(bank, qid);
    
     } else if (action === "Générer un fichier d'identification au format VCard") {
-      const { teacher } = await inquirer.prompt([
+      const teacher = await inquirer.prompt([
         {
           type: "input",
           name: "nom",
@@ -86,6 +86,11 @@ async function main() {
           type: "input",
           name: "tel",
           message: "Entrez votre numéro de téléphone: (obligatoire)"
+        },
+        {
+          type: "input",
+          name: "pathname",
+          message: "Entrez le chemin vers lequel vous voulez enregistrer votre fichier: (Veillez à ne pas faire de fautes)"
         }
       ]);
       generateVcard(teacher);
