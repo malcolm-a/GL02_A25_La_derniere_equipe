@@ -89,11 +89,11 @@ async function main() {
         },
         {
           type: "input",
-          name: "pathname",
+          name: "filepath",
           message: "Entrez le chemin vers le dossier sur lequel vous voulez enregistrer votre fichier. Veillez à ne pas faire de fautes:"
         }
       ]);
-      console.log(generateVcard(teacher));
+      await generateVcard(teacher);
     }
   }
 }
