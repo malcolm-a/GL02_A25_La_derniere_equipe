@@ -5,6 +5,7 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
 import { showError, showSuccess } from "./utils/show.js";
+import {createExam, addQuestion, removeQuestion, displayExam, verifExam} from "./examManager.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,9 @@ const __dirname = path.dirname(__filename);
 const DEFAULT_BANK_PATH = path.join(__dirname, "../SujetB_Data");
 
 async function main() {
+
+  let exam = null;
+
   console.log(chalk.green("=== démarrage ==="));
   // Charger la banque
   const bank = await importBank(DEFAULT_BANK_PATH);
@@ -26,6 +30,11 @@ async function main() {
       choices: [
         'Rechercher une question par mot-clé',
         'Afficher une question par ID',
+        'Créer un examen',
+        "Ajouter une question à l'examen",
+        "Retirer une question de l'examen",
+        "Afficher l'examen",
+        "Vérifier la validité de l'examen",
         'Quitter'
       ]
     });
@@ -58,7 +67,68 @@ async function main() {
       });
       displayQuestion(bank, qid);
    
+
+
+    } else if (action === "Créer un examen"){
+      const { title } = await inquirer.prompt({
+        type : "input",
+        name: "title",
+        message : "Titre de l'examen : "
+      });
+      exam = createExam(title);
+      console.log("Examen créé !");
+
+
+
+    }else if (action === "Ajouter une question à l'examen"){
+      if (!exam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        const { qid } = await inquirer.prompt({
+        type : "input",
+        name: "qid",
+        message : "ID de la question à ajouter : "
+        });
+        const question = banq.questions.find(q => q.id === qid);
+        if (!question){
+          console.log("Question introuvable dans la banque.");
+        }else {
+          addQuestion(exam, question);
+        }
+      }
+
+
+
+    }else if (action === "Retirer une question de l'examen"){
+      if (!exam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        const { qid } = await inquirer.prompt({
+        type : "input",
+        name: "qid",
+        message : "ID de la question à retirer : "
+        });
+        removeQuestion(exam, qid);
+      }
+
+
+
+    }else if (action === "Afficher l'examen"){
+      if (!exam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        displayExam(exam);
+      }
+
+
+    }else if(action === "Vérifier la validité de l'examen"){
+      if (!exam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        verifExam(exam);
+      }
     }
+    
   }
 }
 
