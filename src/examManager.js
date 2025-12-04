@@ -43,7 +43,7 @@ export function displayExam(exam){
 /* Fonction permettant de vérifier si la validité d'un examen */
 export function verifExam(exam){
     let erreurs = [];
-
+    
     // Vérification du nombre de question
     const nbQuestion = exam.questions.length;
     if(nbQuestion<15){
@@ -53,7 +53,7 @@ export function verifExam(exam){
     }
 
     // Vérification des doublons
-    let idQuestion = exam.question.map( q=> q.id );
+    let idQuestion = exam.questions.map( q=> q.id );
     let doublons = idQuestion.filter((id, index) => idQuestion.indexOf(id) !== index);
 
     if (doublons.length !== 0){

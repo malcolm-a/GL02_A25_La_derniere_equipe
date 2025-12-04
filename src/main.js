@@ -89,7 +89,7 @@ async function main() {
         name: "qid",
         message : "ID de la question à ajouter : "
         });
-        const question = banq.questions.find(q => q.id === qid);
+        const question = bank.questions.find(q => q.id === qid);
         if (!question){
           console.log("Question introuvable dans la banque.");
         }else {
