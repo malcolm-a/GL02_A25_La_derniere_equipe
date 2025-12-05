@@ -6,6 +6,8 @@ import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
 import { showError, showSuccess } from "./utils/show.js";
 import {createExam, addQuestion, removeQuestion, displayExam, verifExam} from "./examManager.js";
+import {examToGift, saveGift} from "./giftExport.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +37,7 @@ async function main() {
         "Retirer une question de l'examen",
         "Afficher l'examen",
         "Vérifier la validité de l'examen",
+        "Exporter en gift l'examen",
         'Quitter'
       ]
     });
@@ -126,6 +129,23 @@ async function main() {
         console.log("Vous devez d'abord créer un examen.");
       }else{
         verifExam(exam);
+      }
+    }else if(action === "Exporter en gift l'examen"){
+      if (!exam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        const { filepath } = await inquirer.prompt({
+        type : "input",
+        name: "filepath",
+        message : "Chemin : "
+        });
+        const gift = examToGift(exam);
+        const success = await saveGift(gift, filepath);
+        if (success){
+          console.log("Export terminé");
+        }else{
+          console.log("Erreur");
+        }
       }
     }
     
