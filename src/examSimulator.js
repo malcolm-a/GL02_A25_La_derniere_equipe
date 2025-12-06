@@ -15,11 +15,11 @@ export function examSimulator(exam) {
 
         } else if (q.type === "true_false") {
             const tf = [true,false];
-            let ind = getRandomInt(0,2);
+            let ind = getRandomInt(2);
             list_answers.push(tf[ind]);
 
         } else if (q.type === "numeric") {
-            list_answers.push(null);
+            list_answers.push(getRandomInt(10)); // entier aléatoire entre 0 et 10
             
         } else if (q.type === "short_answer") {
             list_answers.push(null);
