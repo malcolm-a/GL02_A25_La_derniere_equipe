@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import inquirer from "inquirer";
 import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
+import { examSimulator, summaryExam} from "./examSimulator.js";
 import { showError, showSuccess } from "./utils/show.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +27,7 @@ async function main() {
       choices: [
         'Rechercher une question par mot-clé',
         'Afficher une question par ID',
+        "Simuler l'examen",
         'Quitter'
       ]
     });
@@ -58,6 +60,12 @@ async function main() {
       });
       displayQuestion(bank, qid);
    
+    } else if (action === "Simuler l'examen") {
+      if (!exam) {
+        console.log("Erreur: vous devez d'abord créer un examen.")
+      } else {
+        examSimulator(exam);
+      }
     }
   }
 }
