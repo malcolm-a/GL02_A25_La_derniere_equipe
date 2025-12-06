@@ -22,20 +22,23 @@ export function examSimulator(exam) {
             list_answers.push(getRandomInt(10)); // entier aléatoire entre 0 et 10
             
         } else if (q.type === "short_answer") {
-            list_answers.push(null);
+            list_answers.push("Short answer here"); // pas faisable aléatoirement
 
 
         } else if (q.type === "matching") {
             list_answers.push(null);
 
         } else if (q.type === "essay") {
-            list_answers.push("Essay here");
+            list_answers.push("Essay here"); // pas faisable aléatoirement
             
         }
 
-    }
+    };
+    if (list_answers.length === exam.questions.length) {
+        return list_answers;
+    } else console.log("Erreur lors de la simulation de réponses");
 };
 
-export function summaryExam(list_answer) {
+export function summaryExam(list_answers) {
     
 };

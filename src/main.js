@@ -62,8 +62,8 @@ async function main() {
    
     } else if (action === "Simuler l'examen") {
       if (!exam) {
-        console.log("Erreur: vous devez d'abord créer un examen.")
-      } else {
+        console.log("Vous devez d'abord créer un examen.")
+      }else {
         examSimulator(exam);
       }
     }
