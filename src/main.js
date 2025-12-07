@@ -7,6 +7,7 @@ import { importBank, searchByKeyword, displayResults, displayQuestion } from "./
 import { showError, showSuccess } from "./utils/show.js";
 import {createExam, addQuestion, removeQuestion, displayExam, verifExam} from "./examManager.js";
 import {examToGift, saveGift} from "./giftExport.js";
+import {computeExamProfile, compareProfiles, displayComparaison, saveProfileChart} from "./examProfiler.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,7 +18,8 @@ const DEFAULT_BANK_PATH = path.join(__dirname, "../SujetB_Data");
 
 async function main() {
 
-  let exam = null;
+  let exams = {};
+  let currentExam = null;
 
   console.log(chalk.green("=== démarrage ==="));
   // Charger la banque
@@ -33,11 +35,14 @@ async function main() {
         'Rechercher une question par mot-clé',
         'Afficher une question par ID',
         'Créer un examen',
+        `Selectionner l'examen`,
         "Ajouter une question à l'examen",
         "Retirer une question de l'examen",
         "Afficher l'examen",
         "Vérifier la validité de l'examen",
         "Exporter en gift l'examen",
+        "Générer un profil statistique d'un examen",
+        "Comparer les profils de 2 examens",
         'Quitter'
       ]
     });
@@ -78,13 +83,39 @@ async function main() {
         name: "title",
         message : "Titre de l'examen : "
       });
-      exam = createExam(title);
-      console.log("Examen créé !");
+      if (exams[title]){
+        console.log("Un examen avec ce titre existe déjà !");
+      }else{
+        const newExam = createExam(title);
+        exams[title] = newExam;
+        currentExam = newExam;
+        console.log("Examen créé !");
+      }
+      
+      
+
+
+
+    } else if (action === "Selectionner l'examen"){
+      
+      if (currentExam==null){
+        console.log("Aucun examen disponible. Créez-en un d'abord.");
+      }else{
+        const { selectedTitle } = await inquirer.prompt({
+          type: "list",
+          name: "selectedTitle",
+          message: "Choisissez l'examen :",
+          choices: Object.keys(exams)
+        });
+        currentExam = exams[selectedTitle];
+      }
+      
+      
 
 
 
     }else if (action === "Ajouter une question à l'examen"){
-      if (!exam){
+      if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
         const { qid } = await inquirer.prompt({
@@ -96,14 +127,14 @@ async function main() {
         if (!question){
           console.log("Question introuvable dans la banque.");
         }else {
-          addQuestion(exam, question);
+          addQuestion(currentExam, question);
         }
       }
 
 
 
     }else if (action === "Retirer une question de l'examen"){
-      if (!exam){
+      if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
         const { qid } = await inquirer.prompt({
@@ -111,41 +142,79 @@ async function main() {
         name: "qid",
         message : "ID de la question à retirer : "
         });
-        removeQuestion(exam, qid);
+        removeQuestion(currentExam, qid);
       }
 
 
 
     }else if (action === "Afficher l'examen"){
-      if (!exam){
+      if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
-        displayExam(exam);
+        displayExam(currentExam);
       }
 
 
     }else if(action === "Vérifier la validité de l'examen"){
-      if (!exam){
+      if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
-        verifExam(exam);
+        verifExam(currentExam);
       }
     }else if(action === "Exporter en gift l'examen"){
-      if (!exam){
+      if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
         const { filepath } = await inquirer.prompt({
         type : "input",
         name: "filepath",
-        message : "Chemin : "
+        message : "Sous quel nom voulez-ous enregister l'examen ? "
         });
-        const gift = examToGift(exam);
-        const success = await saveGift(gift, filepath);
+        const gift = examToGift(currentExam);
+        const success = await saveGift(gift, filepath+".gift");
         if (success){
           console.log("Export terminé");
         }else{
           console.log("Erreur");
         }
+      }
+
+
+
+    }else if(action === "Générer un profil statistique d'un examen"){
+      if (!currentExam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        const profile = computeExamProfile(currentExam);
+        console.log("Profil généré");
+        for (const [type, count] of Object.entries(profile.type)){
+          console.log(profile.pourcentage[type]);
+        }
+        const { filepath } = await inquirer.prompt({
+        type : "input",
+        name: "filepath",
+        message : "Sous quel nom voulez-ous enregister le profil ? "
+        });
+        saveProfileChart(profile, filepath+".html");
+      }
+
+
+
+    }else if(action === "Comparer les profils de 2 examens"){
+      if (!currentExam){
+        console.log("Vous devez d'abord créer un examen.");
+      }else{
+        const { selectedTitle } = await inquirer.prompt({
+          type: "list",
+          name: "selectedTitle",
+          message: `Choisissez l'examen à comparer avec ${currentExam.titre}:`,
+          choices: Object.keys(exams)
+        });
+        const examCompare = exams[selectedTitle];
+        const profil1 = computeExamProfile(currentExam);
+        const profil2 = computeExamProfile(examCompare);
+        const comparaison = compareProfiles(profil1, profil2);
+        displayComparaison(comparaison);
       }
     }
     
