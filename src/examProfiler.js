@@ -1,4 +1,5 @@
 import fs from "fs";
+import { importBank } from "./questionBank.js";
 
 export function computeExamProfile(exam){
     const profile = {
@@ -20,6 +21,30 @@ export function computeExamProfile(exam){
         if (type == "true_false" || type == "numeric" || type == "matching" || type == "short_answer" || type == "multiple_choice"){
             profile.autoCorrection++;
         }
+    }
+
+    for (const [type, count] of Object.entries(profile.type)){
+        profile.pourcentage[type] = ((count/profile.total)*100).toFixed(1) + "%";
+    }
+
+    return profile;
+}
+
+function computeGiftProfile(questions){
+    const profile = {
+        total: questions.length,
+        type: {},
+        pourcentage: {}
+    };
+
+    for (const question of questions){
+        const type = question.type;
+        if(!profile.type[type]){
+            profile.type[type] = 1;
+        }else{
+            profile.type[type]++;
+        }
+
     }
 
     for (const [type, count] of Object.entries(profile.type)){
@@ -70,74 +95,87 @@ export function saveProfileChart(profile, path = "profil.html"){
 }
 
 
-export function compareProfiles (profil1, profil2){
-    if (!profil1 || !profil2){
+
+export function compareProfiles (examProfile, corpusProfile){
+    if (!examProfile || !corpusProfile){
         return null;
     }
 
     const comparaison = {
-        exam1: profil1.titre,
-        exam2: profil2.titre,
-        totalDifference: profil1.total-profil2.total,
         typeDifferent: {},
-        autoCorrectionDiff: profil1.autoCorrection-profil2.autoCorrection
+        divergence: 0
     };
 
     const types = [];
-    for (const type in profil1.type){
-        if(!types.includes(type)){
-            types.push(type);
-        }
+    for (const type of Object.keys(examProfile.type)) {
+        if (!types.includes(type)) types.push(type);
     }
-    for (const type in profil2.type){
-        if(!types.includes(type)){
-            types.push(type);
-        }
+    for (const type of Object.keys(corpusProfile.type)) {
+        if (!types.includes(type)) types.push(type);
     }
 
     for (const type of types){
-        const v1 = profil1.type[type] || 0;
-        const v2 = profil2.type[type] || 0;
-        comparaison.typeDifferent[type] = v1-v2;
+        const pExam = parseFloat(examProfile.pourcentage[type]) || 0;
+        const pCorpus = parseFloat(corpusProfile.pourcentage[type]) || 0;
+
+        const diff = pExam-pCorpus;
+
+        comparaison.typeDifferent[type]={
+            exam: pExam,
+            corpus: pCorpus,
+            diff: diff
+        };
+
+        comparaison.divergence += Math.abs(diff);
     }
 
     return comparaison;
     
 }
 
-export function displayComparaison(comparaison){
-    console.log("Comparaison de profils d'examens \n");
+export function displayComparaisonTable(results){
+    console.log("\n=== COMPARAISON EXAMEN / CORPUS ===\n");
+    console.log("Type        | Exam (%) | Corpus (%) | ∆ (pp)  | Histogramme");
+    console.log("---------------------------------------------------------------");
 
-    console.log("Comparaison entre :");
-    console.log("-" + comparaison.exam1);
-    console.log("-" + comparaison.exam2 + "\n");
+    for (const [type, data] of Object.entries(results.typeDifferent)){
+        const pExam = data.exam.toFixed(1);
+        const pCorpus = data.corpus.toFixed(1);
+        const pDiff = (data.diff).toFixed(1);
 
-    console.log("Nombre total de questions :");
-    if (comparaison.totalDifference>0){
-        console.log(`Il y a ${comparaison.totalDifference} question(s) en plus dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
-    }else if (comparaison.totalDifference<0){
-        console.log(`Il y a ${Math.abs(comparaison.totalDifference)} question(s) en moins dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
-    }else{
-        console.log("Il y a le même nombre de question");
-    }
-
-    console.log("\nDifférences par type :");
-    for (const [type, diff] of Object.entries(comparaison.typeDifferent)){
-        if (diff>0){
-            console.log(`Il y a ${diff} question(s) ${type} en plus dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
-        }else if (diff<0){
-            console.log(`Il y a ${diff} question(s) ${type} en moins dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
+        let signe;
+        const barre = "■".repeat(Math.abs(Math.round(data.diff)));
+        if (data.diff >= 0){
+            signe = "+";
         }else{
-            console.log(`Il y a le même nombre de question ${type}`);
+            signe ="-";
         }
+
+        console.log(`${type.padEnd(10)} | ${pExam.padStart(10)} | ${pCorpus.padStart(10)} | ${pDiff.padStart(10)} | ${signe}${barre}`);
+    }
+    console.log(`\nIndice de divergence L1 : ${results.divergence.toFixed(2)}`);
+}
+
+
+export async function compareGift(examPath, corpusPath){
+    const examBank = await importBank(examPath);
+    examBank.questions = examBank.questions.filter(q => q.text.trim() !== '');
+    if (!examBank || examBank.questions.length === 0){
+        throw new Error("Examen non valide.");
+    }
+    
+
+    const corpusBank = await importBank(corpusPath);
+    corpusBank.questions = corpusBank.questions.filter(q => q.text.trim() !== '');
+    if (!corpusBank || corpusBank.questions.length === 0){
+        throw new Error("Corpus non valide.");
     }
 
-    console.log("\nQuestion auto-corrigées :");
-    if (comparaison.autoCorrectionDiff>0){
-        console.log(`Il y a ${comparaison.autoCorrectionDiff} question(s) auto-corrigée(s) en plus dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
-    }else if (comparaison.autoCorrectionDiff<0){
-        console.log(`Il y a ${Math.abs(comparaison.autoCorrectionDiff)} question(s) auto-corrigée(s) en moins dans ${comparaison.exam1} que dans ${comparaison.exam2}`);
-    }else{
-        console.log("Il y a le même nombre de question auto-corrigée");
-    }
+    const examProfile = computeGiftProfile(examBank.questions);
+    const corpusProfile = computeGiftProfile(corpusBank.questions);
+
+    const comparaison = compareProfiles(examProfile, corpusProfile);
+
+    displayComparaisonTable(comparaison);
 }
+
