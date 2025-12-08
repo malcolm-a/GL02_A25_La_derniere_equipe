@@ -15,9 +15,9 @@ export async function writeFileUtf8(filepath, content) {
 }
 
 // lire tous les fichiers d'un dossier avec une extension donnée
-export async function readDirFilesUtf8(dir, extFilter = null) { //extFilter : filtre par extension de fichier
+export async function readDirFilesUtf8(dirOrFile, extFilter = null) { //extFilter : filtre par extension de fichier
 
-  const files = await fs.readdir(dir, { withFileTypes: true }); //withFileTypes : obtenir des objets qui sait si l'entrée est un fichier ou un dossier
+  /*const files = await fs.readdir(dir, { withFileTypes: true }); //withFileTypes : obtenir des objets qui sait si l'entrée est un fichier ou un dossier
   const results = [];
    
   for (const f of files) {
@@ -29,5 +29,38 @@ export async function readDirFilesUtf8(dir, extFilter = null) { //extFilter : fi
       }
     }
   }
-  return results;
+  return results;*/
+
+  const resolved = path.resolve(dirOrFile);
+
+  try {
+    const stat = await fs.stat(resolved);
+
+    // Si c'est un fichier
+    if (stat.isFile()) {
+      if (!extFilter || path.extname(resolved).toLowerCase() === extFilter) {
+        const content = await fs.readFile(resolved, "utf8");
+        return [{ filename: path.basename(resolved), content }];
+      } else return [];
+    }
+
+    // Si c'est un dossier
+    const files = await fs.readdir(resolved, { withFileTypes: true });
+    const results = [];
+
+    for (const f of files) {
+      if (f.isFile()) {
+        const ext = path.extname(f.name).toLowerCase();
+        if (!extFilter || ext === extFilter) {
+          const content = await fs.readFile(path.join(resolved, f.name), "utf8");
+          results.push({ filename: f.name, content });
+        }
+      }
+    }
+
+    return results;
+    } catch (err) {
+    console.error("Erreur readDirFilesUtf8:", err.message);
+    return [];
+  }
 }

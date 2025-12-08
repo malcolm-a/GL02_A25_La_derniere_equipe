@@ -1,0 +1,306 @@
+{
+  "titre": "exam",
+  "questions": [
+    {
+      "id": "EM U4 p33 Review 4.0 Key word transformation",
+      "type": "description",
+      "format": "html",
+      "text": "Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. Here is an example: <blockquote>Please don’t drive so fast — this is a dangerous road.<br> <b>MORE</b><br> Please <i>drive more slowly</i> — this is a dangerous road.</blockquote>",
+      "choices": [],
+      "source": "EM-U4-p32_33-Review.gift",
+      "raw": "// Part 1: Multiple Choice\r\n::EM U4 p32 Review 1 MultiChoice::Read the text below and decide which answer best fits each gap. There is an example at the beginning.\r\n<b>The science of happiness</b>\r\nSome scientisis believe that asking people how happy they are is {1:MC:~=similar to~close to ~Typical of~consist of} asking them about an event they've attended in the past — there’s a lot they {1:MC:~gave~=took~got~kept} no notice of during the experience,so how do they know? These scientists think that anyone studying happiness should pay more {1:MC:~focus~concentration~=attention~regard} to people’s experiences at the time they occur, not afterwards.\r\nOther scientists say that we are actually {1:MC:~=made~built~created~developed} up of our memories. They suggest that studying moment-to-moment experiences at the time {1:MC:~sets~=puts~fixes~rests} too much emphasis on temporary pleasures, and that happiness goes {1:MC:~stronger~lower~=deeper~greater} than that. They identify three key {1:MC:~=ingredients~parts~factors~items} for happiness: pleasure, engagement (how involved we are with family, work, romance and hobbies) and meaning (how we use our personal strengths to achieve important {1:MC:~intentions~plans~marks~=goals}. It is interesting that, {1:MC:~against~opposing~=contrary~contrast} to what might be expected, pleasure seems to play the smallest part in what makes us happy.\r\n\r\n// Part 2: Open Cloze\r\n::EM U4 p32 Review 2 OpenCloze::Read the text below and think of the word which best fits each gap. Use only one word in each gap.\r\n// There is an example at the beginning.\r\n<b>More than just a pretty face?</b>\r\nThere are many stories of dolphins helping people in trouble, {1:SA:=like} saving swimmers from shark attacks by gathering round them or shepherding them to safety. {1:SA:=If} these stories are true, why do dolphins do it and {1:SA:=what} makes them behave in this way? Scientists {1:SA:=who~=that} have studied them are not entirely sure. For dolphins to act together as a group to save humans implies that {1:SA:=there} is some sort of code of ethics among dolphins, but there is little evidence  for that. The {1:SA:=most} likely explanation is that they instinctively respond to the appearance of predators like sharks by herding weaker members of their own group into {1:SA:=a} safe place - and there is proof that dolphins do cooperate with {1:SA:=each~=each other} other to ward off danger. Maybe they just mistake swimmers for part of their group, which would mean that dolphins don’t have genuine feelings of kindness towards humans. {1:SA:=It} may be that their smiling appearance simply gives people the wrong idea.\r\n\r\n// Part 3: Word formation\r\n::EM U4 p33 Review 3 Word formation::Read the text below. Use the word given in capitals to form a word that fits in the gap in the same line.\r\n// There is an example at the beginning (0).\r\n<b>Why do they do it?</b>\r\nPeople are attracted to attempting extreme activities for a {1:SA:=variety} (VARY) of reasons. Some enjoy the challenge, others the feeling of {1:SA:=excitement} (EXCITE) they get from testing themselves. So although their actual {1:SA:=motivation} (MOTIVATE) may differ, people who participate in extreme sports probably share an inability to accept all the {1:SA:=limits} (LIMIT) that most of us think of as normal. They experience a sense of {1:SA:=dissatisfaction} (SATISFY) with the routine of everyday life, and feel a need to push the boundaries of what is possible, to see how far they can go. Is this similar to simply being {1:SA:=competitive} (COMPETE)? Possibly, but it may be more to do with having a dream. Of course {1:SA:=professional} (PROFESSION) athletes who train for extreme events like the triathlon or the marathon may hope for {1:SA:=financial} (FINANCE) rewards, but primarily it seems they like being different. They enjoy the feeling of being set apart from other people by their {1:SA:=achievements} (ACHIEVE), which are things most of us would fear to do.\r\n\r\n// Part 4: Key word transformation\r\n::EM U4 p33 Review 4.0 Key word transformation::[html]Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given. Here is an example:\r\n<blockquote>Please don’t drive so fast — this is a dangerous road.<br>\r\n<b>MORE</b><br>\r\nPlease <i>drive more slowly</i> — this is a dangerous road.</blockquote>\r\n\r\n::EM U4 p33 Review 4.1 more irritating than::[html]Nothing irritates me more than getting hundreds of spam emails.<br>\r\n<b>MORE</b><br>\r\nThere is nothing {=more irritating than#comparative} getting hundreds of spam emails.\r\n\r\n::EM U4 p33 Review 4.3 so excited by/about::[html]The tennis game was so exciting that the spectators cheered loudly at the end.<br>\r\n<b>WERE</b><br>\r\nThe spectators {=were so excited by =were so excited about#phrase: so ... that ...} the tennis game that they cheered loudly at the end.\r\n\r\n::EM U4 p33 Review 4.2 interesting for/to::[html]I'm very interesled in learning about the culture of other countries<br>\r\n<b>IS</b><br>\r\nLearning about the culture of other countries {=is very interesting for =is very interesting to#change of adjective form: interested – interesting} me.\r\n\r\n::EM U4 p33 Review 4.4 worried by::[html]I find it very worrying if things go wrong on holiday.<br>\r\n<b>GET</b><br>\r\nI {=get very worried about =get very worried by#change of adjective to verb} things going wrong on holiday.\r\n\r\n::EM U4 p33 Review 4.5 boring::[html]I get bored by people who talk too much.<br>\r\n<b>FIND</b><br>\r\nI {=find it boring#change of adjective form: bored – boring} when people talk too much.\r\n\r\n::EM U4 p33 Review 4.6 for the first time::[html]I had never seen a glacier before I went to Norway<br>\r\n<b>I</b><br>\r\nWhen I was in Norway, {=I saw a glacier for#I had never seen – I saw ... for the first time} the first time.\r\n"
+    },
+    {
+      "id": "EM U5 p34 Voc1.0",
+      "type": "description",
+      "format": null,
+      "text": "Complete sentences with the words in the list.",
+      "choices": [],
+      "source": "EM-U5-p34-Voc.gift",
+      "raw": "// Exam Maximiser p 34, Vocabulary, ex 1\r\n\r\n::EM U5 p34 Voc1.0::Complete sentences with the words in the list.\r\n\r\n::EM U5 p34 Voc1.1:: I never eat meat — I follow a strict {~high-fat~low-salt~=vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.2:: People who are overweight are rarely told to follow a {~=high-fat~low-salt~vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.3:: It’s good to give children a {~high-fat~low-salt~vegetarian~vitamins~=well-balanced} diet, including meat, frurt and sugar.\r\n\r\n::EM U5 p34 Voc1.4:: love frurt, vegetables and so on, I know I’m getting a diet rich in {~high-fat~low-salt~vegetarian~=vitamins~well-balanced}.\r\n\r\n::EM U5 p34 Voc1.5:: Older people may be advised to follow a {~high-fat~=low-salt~vegetarian~vitamins~well-balanced} diet for health reasons.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p34 Voc1.1",
+      "type": "multiple_choice",
+      "format": null,
+      "text": "I never eat meat — I follow a strict ___ diet.",
+      "choices": [
+        {
+          "correct": false,
+          "text": "high-fat",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "low-salt",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "",
+          "feedback": null
+        },
+        {
+          "correct": true,
+          "text": "vegetarian",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vitamins",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "well-balanced",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p34-Voc.gift",
+      "raw": "// Exam Maximiser p 34, Vocabulary, ex 1\r\n\r\n::EM U5 p34 Voc1.0::Complete sentences with the words in the list.\r\n\r\n::EM U5 p34 Voc1.1:: I never eat meat — I follow a strict {~high-fat~low-salt~=vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.2:: People who are overweight are rarely told to follow a {~=high-fat~low-salt~vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.3:: It’s good to give children a {~high-fat~low-salt~vegetarian~vitamins~=well-balanced} diet, including meat, frurt and sugar.\r\n\r\n::EM U5 p34 Voc1.4:: love frurt, vegetables and so on, I know I’m getting a diet rich in {~high-fat~low-salt~vegetarian~=vitamins~well-balanced}.\r\n\r\n::EM U5 p34 Voc1.5:: Older people may be advised to follow a {~high-fat~=low-salt~vegetarian~vitamins~well-balanced} diet for health reasons.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p34 Voc1.3",
+      "type": "multiple_choice",
+      "format": null,
+      "text": "It’s good to give children a ___ diet, including meat, frurt and sugar.",
+      "choices": [
+        {
+          "correct": false,
+          "text": "high-fat",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "low-salt",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vegetarian",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vitamins",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "",
+          "feedback": null
+        },
+        {
+          "correct": true,
+          "text": "well-balanced",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p34-Voc.gift",
+      "raw": "// Exam Maximiser p 34, Vocabulary, ex 1\r\n\r\n::EM U5 p34 Voc1.0::Complete sentences with the words in the list.\r\n\r\n::EM U5 p34 Voc1.1:: I never eat meat — I follow a strict {~high-fat~low-salt~=vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.2:: People who are overweight are rarely told to follow a {~=high-fat~low-salt~vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.3:: It’s good to give children a {~high-fat~low-salt~vegetarian~vitamins~=well-balanced} diet, including meat, frurt and sugar.\r\n\r\n::EM U5 p34 Voc1.4:: love frurt, vegetables and so on, I know I’m getting a diet rich in {~high-fat~low-salt~vegetarian~=vitamins~well-balanced}.\r\n\r\n::EM U5 p34 Voc1.5:: Older people may be advised to follow a {~high-fat~=low-salt~vegetarian~vitamins~well-balanced} diet for health reasons.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p34 Voc1.4",
+      "type": "multiple_choice",
+      "format": null,
+      "text": "love frurt, vegetables and so on, I know I’m getting a diet rich in ___ .",
+      "choices": [
+        {
+          "correct": false,
+          "text": "high-fat",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "low-salt",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vegetarian",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "",
+          "feedback": null
+        },
+        {
+          "correct": true,
+          "text": "vitamins",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "well-balanced",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p34-Voc.gift",
+      "raw": "// Exam Maximiser p 34, Vocabulary, ex 1\r\n\r\n::EM U5 p34 Voc1.0::Complete sentences with the words in the list.\r\n\r\n::EM U5 p34 Voc1.1:: I never eat meat — I follow a strict {~high-fat~low-salt~=vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.2:: People who are overweight are rarely told to follow a {~=high-fat~low-salt~vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.3:: It’s good to give children a {~high-fat~low-salt~vegetarian~vitamins~=well-balanced} diet, including meat, frurt and sugar.\r\n\r\n::EM U5 p34 Voc1.4:: love frurt, vegetables and so on, I know I’m getting a diet rich in {~high-fat~low-salt~vegetarian~=vitamins~well-balanced}.\r\n\r\n::EM U5 p34 Voc1.5:: Older people may be advised to follow a {~high-fat~=low-salt~vegetarian~vitamins~well-balanced} diet for health reasons.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p34 Voc1.5",
+      "type": "multiple_choice",
+      "format": null,
+      "text": "Older people may be advised to follow a ___ diet for health reasons.",
+      "choices": [
+        {
+          "correct": false,
+          "text": "high-fat",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "",
+          "feedback": null
+        },
+        {
+          "correct": true,
+          "text": "low-salt",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vegetarian",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "vitamins",
+          "feedback": null
+        },
+        {
+          "correct": false,
+          "text": "well-balanced",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p34-Voc.gift",
+      "raw": "// Exam Maximiser p 34, Vocabulary, ex 1\r\n\r\n::EM U5 p34 Voc1.0::Complete sentences with the words in the list.\r\n\r\n::EM U5 p34 Voc1.1:: I never eat meat — I follow a strict {~high-fat~low-salt~=vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.2:: People who are overweight are rarely told to follow a {~=high-fat~low-salt~vegetarian~vitamins~well-balanced} diet.\r\n\r\n::EM U5 p34 Voc1.3:: It’s good to give children a {~high-fat~low-salt~vegetarian~vitamins~=well-balanced} diet, including meat, frurt and sugar.\r\n\r\n::EM U5 p34 Voc1.4:: love frurt, vegetables and so on, I know I’m getting a diet rich in {~high-fat~low-salt~vegetarian~=vitamins~well-balanced}.\r\n\r\n::EM U5 p34 Voc1.5:: Older people may be advised to follow a {~high-fat~=low-salt~vegetarian~vitamins~well-balanced} diet for health reasons.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra2 passive forms",
+      "type": "description",
+      "format": null,
+      "text": "Complete the email with the correct active or passive form of the verbs in brackets.",
+      "choices": [],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.0 passive",
+      "type": "description",
+      "format": null,
+      "text": "Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.",
+      "choices": [],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.1 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "The chef gave him the recipe. (WAS) He ___ the chef.",
+      "answers": [
+        {
+          "text": "was given the recipe by",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.2 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "The lecture about healthy food raised many interesting issues. (BROUGHT) Many interesting issues ___ the lecture about healthy food.",
+      "answers": [
+        {
+          "text": "were brought up in",
+          "feedback": null
+        },
+        {
+          "text": "were brought up by",
+          "feedback": null
+        },
+        {
+          "text": "were brought up during",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.3 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "Mary baked the cake using six eggs. (BAKED) The cake ___ who used six eggs.",
+      "answers": [
+        {
+          "text": "was baked by Mary",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.4 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "You can't smoke anywhere in the restaurant. (PERMITTED) Smoking ___ anywhere in the restaurant.",
+      "answers": [
+        {
+          "text": "is not permitted",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.5 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "Please check that someone has washed up before you leave! (DONE) Please check that the ___ before Rafa joined him as his business partner.",
+      "answers": [
+        {
+          "text": "washing-up has been done",
+          "feedback": null
+        },
+        {
+          "text": "washing up has been done",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U5 p38 Gra3.6 passive",
+      "type": "short_answer",
+      "format": null,
+      "text": "Jo had opened the restaurant by himself before Rafa joined him as hs business partner. (HAD) The restaurant ___ Jo before Rafa joined him as his business partner.",
+      "answers": [
+        {
+          "text": "had been opened by",
+          "feedback": null
+        }
+      ],
+      "source": "EM-U5-p38-Passive.gift",
+      "raw": "::EM U5 p38 Gra2 passive forms::\r\n// CLOZE\r\nComplete the email with the correct active or passive form of the verbs in brackets.\r\n\r\nDear Julia,\r\nYou'll never gess what {1:SA:=has happened} (happen)! Our lovey new car {1:SA:=has been stolen} (steal)!\r\nOne day last week Jack went out to be yhe beach for a swim and as usual he {1:SA:=hid} (hide) the car keys in the toe of his shoe. When he came out of the water, he {1:SA:=didn't notice~=did not notice} (not notice) anything suspicious. It didn't look as if his clothes {1:SA:=had been touched} (touch). When he started to put them on, however, he realised that the keys {1:SA:=had been taken} (take) and when he got to the car park, of course, the car was gone too.\r\nThe police say there is a gang of car thieves who {1:SA:=are known} (know) to be operating in the area. They think Jack {1:SA:=was being watched} (watch) as he arrived at the beach. The thieves saw where he had parked the car and then where the keys {1:SA:=were hidden~=had been hidden} (hide).\r\nIt was almost two weeks ago now and although we hope it {1:SA:=will be found} (find), we're beginning to think we might never see it again.\r\nWell, that's all from me. Write soon and tell me all your news.\r\nLove,\r\nRaquel\r\n\r\n\r\n\r\n::EM U5 p38 Gra3.0 passive::Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given. You must use between two and five words, including the word given.\r\n\r\n\r\n::EM U5 p38 Gra3.1 passive::The chef gave him the recipe.\r\n(WAS)\r\nHe {=was given the recipe by} the chef.\r\n\r\n::EM U5 p38 Gra3.2 passive:: The lecture about healthy food raised many interesting issues.\r\n(BROUGHT)\r\nMany interesting issues {=were brought up in =were brought up by =were brought up during} the lecture about healthy food.\r\n\r\n::EM U5 p38 Gra3.3 passive:: Mary baked the cake using six eggs.\r\n(BAKED)\r\nThe cake {=was baked by Mary} who used six eggs.\r\n\r\n::EM U5 p38 Gra3.4 passive:: You can't smoke anywhere in the restaurant.\r\n(PERMITTED)\r\nSmoking {=is not permitted} anywhere in the restaurant.\r\n\r\n::EM U5 p38 Gra3.5 passive::Please check that someone has washed up before you leave!\r\n(DONE)\r\nPlease check that the {=washing-up has been done =washing up has been done} before Rafa joined him as his business partner.\r\n\r\n::EM U5 p38 Gra3.6 passive:: Jo had opened the restaurant by himself before Rafa joined him as hs business partner.\r\n(HAD)\r\nThe restaurant {=had been opened by} Jo before Rafa joined him as his business partner.\r\n\r\n\r\n"
+    },
+    {
+      "id": "EM U6 p46-47 4.0 UoE Key word transformation",
+      "type": "description",
+      "format": "html",
+      "text": "Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given.You must use between two and five words, including the word given.<br> <blockquote> A very kind friend took us home after the party. (<b>TAKEN</b>)<br> Aften the party, we <i><u>were taken home by</u></i> a very kind friend. </blockquote>",
+      "choices": [],
+      "source": "EM-U6-p46_47-4.gift",
+      "raw": "::EM U6 p46-47 4.0 UoE Key word transformation::[html]Complete the second sentence so that it has a similar meaning to the first sentence, using the word given. Do not change the word given.You must use between two and five words, including the word given.<br>\r\n<blockquote>\r\nA very kind friend took us home after the party. (<b>TAKEN</b>)<br>\r\nAften the party, we <i><u>were taken home by</u></i> a very kind friend.\r\n</blockquote>\r\n\r\n::EM U6 p46-47 4.1::[html]I couldn't wait to see my friend again after her long trip abroad. (<b>LOOKING</b>)<br>\r\nI {=was looking forward to seeing} my friend again after her long trip abroad.\r\n\r\n::EM U6 p46-47 4.2::[html]The last time Joe saw Carlos was the day they both graduated from university. (<b>SEEN</b>)<br>\r\nCarlos {=has not seen Joe since} the day they both graduated from university.\r\n\r\n::EM U6 p46-47 4.3::[html]‘You must do your homework, Tom’, said Carol. (<b>REMINDED</b>)<br>\r\nCarol {=reminded Tom to do} his homework.\r\n\r\n::EM U6 p46-47 4.4::[html]I never seem to find the time to read newspapers these days. (<b>ROUND</b>)<br>\r\nI never seem to {=get round to reading} newspapers these days.\r\n\r\n::EM U6 p46-47 4.5::[html]Nothing irritates me as much as getting piles of junk mail through the post. (<b>MORE</b>)<br>\r\nThere is nothing {=more irritating than} getting piles of junk mail through the post.\r\n\r\n::EM U6 p46-47 4.6::[html]The idea of flying is very frightening for some people. (<b>ARE</b>)<br>\r\nSome people {=are very frightened by=are very frightened of} the idea of flying.\r\n"
+    }
+  ]
+}
