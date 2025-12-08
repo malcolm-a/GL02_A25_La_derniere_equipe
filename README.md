@@ -47,6 +47,7 @@ Le programme propose un menu permettant de :
 - Sauvegarder / charger un examen
 
 Les examens JSON sont automatiquement stockés dans le dossier : /exams
+Les profils généré en html sont automatiquement stockés dans le dossier : /html
 
 
 
