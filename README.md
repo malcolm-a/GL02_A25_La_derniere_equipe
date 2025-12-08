@@ -31,7 +31,9 @@ npm install
 ### Utilisation:
 
 cd src
+
 node main.js
+
 
 Le programme propose un menu permettant de :
 - Rechercher une question
