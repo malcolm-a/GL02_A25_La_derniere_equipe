@@ -36,7 +36,7 @@ cd src
 
 node main.js
 
-
+-------------------------------------------------------------
 
 
 Le programme propose un menu permettant de :
