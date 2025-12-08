@@ -1,11 +1,19 @@
 import chalk from "chalk";
 //typesValides = ["multiple_choice","true_false", "numeric", "short_answer", "matching", "essay", "description"];
 
-function getRandomInt(min = 0, max) { //min inclus, max exclus
+function getRandomInt(min = 0, max) { // min inclus, max exclus
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-}
+};
+
+function shuffle(array) { // algorithme de Fisher-Yales, permet de mélanger un array aléatoirement
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = getRandomInt(0, i + 1);
+    [array[i], array[j]] = [array[j], array[i]]; // swap
+  }
+};
+
 
 export function examSimulator(exam) {
     let list_answers = [];
@@ -27,7 +35,22 @@ export function examSimulator(exam) {
 
 
         } else if (q.type === "matching") {
-            list_answers.push(null);
+            let lefts = [], rights = [], newpairs = [];
+            for (let i = 0; i < q.pairs.length; i++) { // récupérer les left & right pr former des paires random
+                lefts.push(q.pairs[i].left);
+                rights.push(q.pairs[i].right);
+            }
+            // mélanger les 2 listes pr ensuite créer des paires facilement
+            shuffle(lefts);
+            shuffle(rights);
+            for (let i = 0; i < lefts.length; i++) {
+                newpairs.push({
+                    left: lefts[i],
+                    right: rights[i]
+                });
+            };
+            
+            list_answers.push(newpairs);
 
         } else if (q.type === "essay") {
             list_answers.push("Essay here"); // pas faisable aléatoirement
@@ -86,7 +109,18 @@ export async function summaryExam(exam, list_answers) {
 
             } else if (exam.questions[i].type === "matching") {
                 console.log(exam.questions[i].text + "\n");
-                score++;
+                let isCorrect = true;
+                for (let j = 0; j < list_answers[i].length; j++) {
+                    for (let k = 0; k < exam.questions[i].pairs.length; k++) {
+                        if (list_answers[i][j] === exam.questions[i].pairs[k]) {
+                            console.log(chalk.green(list_answers[i][j].left + " -> " + list_answers[i][j].right + "\n"));
+                        } else {
+                            console.log(chalk.red(list_answers[i][j].left + " -> " + list_answers[i][j].right + "\n"));
+                            isCorrect = false; // si 1 erreur on ne donne pas le point
+                        }
+                    }
+                }
+                if (isCorrect) score++;
 
             } else if (exam.questions[i].type === "essay") {
                 console.log(exam.questions[i].text + "\n");
