@@ -1,3 +1,4 @@
+import chalk from "chalk";
 //typesValides = ["multiple_choice","true_false", "numeric", "short_answer", "matching", "essay", "description"];
 
 function getRandomInt(min = 0, max) { //min inclus, max exclus
@@ -8,7 +9,7 @@ function getRandomInt(min = 0, max) { //min inclus, max exclus
 
 export function examSimulator(exam) {
     let list_answers = [];
-    for (let q of exam.questions) {
+    for (const q of exam.questions) {
         if (q.type === "multiple_choice") {
             let nb = getRandomInt(q.choices.length); // on choisit une répnse aléatoire parmi les choix
             list_answers.push(q.choices[nb]); // on ajoute cette réponse là 
@@ -31,18 +32,74 @@ export function examSimulator(exam) {
         } else if (q.type === "essay") {
             list_answers.push("Essay here"); // pas faisable aléatoirement
             
+        } else if (q.type === "description") {
+            list_answers.push(q.text);
         }
 
     };
     return list_answers;
 };
 
-export function summaryExam(exam, list_answers) {
+export async function summaryExam(exam, list_answers) {
     if (list_answers.length != exam.questions.length) {
-        console.log("Erreur lors de la simulation de réponses.");
+        console.log("Erreur lors de la simulation de réponses.  " + list_answers.length + "   " + exam.questions.length);
         return;
     } else {
-        return;
+        let score = 0;
+        console.log("===== Résultats de simulation =====\n")
+        for (let i = 0; i < list_answers.length; i++) {
+            if (exam.questions[i].type === "multiple_choice") {
+                console.log(exam.questions[i].text + "\n");
+
+
+            } else if (exam.questions[i].type === "true_false") {
+                console.log(exam.questions[i].text + "\n");
+                if (exam.questions[i].answer === list_answers[i]) {
+                    score++;
+                    console.log(chalk.green(list_answers[i] + ": Correct\n"));
+                } else {
+                    console.log(chalk.red(list_answers[i] + ": Incorrect\n"));
+                };
+
+            } else if (exam.questions[i].type === "numeric") {
+                console.log(exam.questions[i].text + "\n");
+                if (exam.questions[i].margin) {
+                    if ((list_answers[i] >= exam.questions[i].answer-exam.questions[i].margin) && (list_answers[i] <= exam.questions[i].answer+exam.questions[i].margin)) {
+                        score++;
+                        console.log(chalk.green(list_answers[i] + ": Correct\n"))
+                    } else {
+                        console.log(chalk.red(list_answers[i] + ": Incorrect (bonne réponse = " + exam.questions[i].answer+")\n"));
+                    }
+                } else {
+                    if (list_answers[i] === exam.questions[i].answer) {
+                        score++;
+                        console.log(chalk.green(list_answers[i] + ": Correct\n"));
+                    } else {
+                        console.log(chalk.red(list_answers[i] + ": Incorrect (bonne réponse = " + exam.questions[i].answer+")\n"));
+                    }
+                };
+
+            } else if (exam.questions[i].type === "short_answer") {
+                console.log(exam.questions[i].text + "\n");
+                score += 0.5;
+                console.log(chalk.yellow(list_answers[i] + " (not randomizable)\n"))
+
+            } else if (exam.questions[i].type === "matching") {
+                console.log(exam.questions[i].text + "\n");
+                score++;
+
+            } else if (exam.questions[i].type === "essay") {
+                console.log(exam.questions[i].text + "\n");
+                score += 0.5;
+                console.log(chalk.yellow(list_answers[i] + " (not randomizable)\n"))
+
+            } else if (exam.questions[i].type === "description") {
+                console.log(exam.questions[i].text + "\n");
+                score++;
+            }
+        }
+        console.log("===== Fin de simulation =====\n");
+        console.log("Score obtenu: " + score + " / " + exam.questions.length + " (les short answers et essays valent pour 0.5 et les desc pour 1\n");
     };
     
 };

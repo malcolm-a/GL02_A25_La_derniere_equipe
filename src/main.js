@@ -64,7 +64,7 @@ async function main() {
       if (!exam) {
         console.log("Vous devez d'abord créer un examen.")
       }else {
-        examSimulator(exam);
+        await summaryExam(exam, examSimulator(exam)); // arguments: exam et list_answers retournée par examSimulator()
       }
     }
   }
