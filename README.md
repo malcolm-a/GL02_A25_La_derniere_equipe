@@ -30,7 +30,8 @@ npm install
 
 ### Utilisation:
 
-node src/main.js
+cd src
+node main.js
 
 Le programme propose un menu permettant de :
 - Rechercher une question
