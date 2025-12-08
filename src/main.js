@@ -251,9 +251,6 @@ async function main() {
         }
         const profile = computeExamProfile(currentExam);
         console.log("Profil généré");
-        for (const [type, count] of Object.entries(profile.type)){
-          console.log(profile.pourcentage[type]);
-        }
         const { filepath } = await inquirer.prompt({
         type : "input",
         name: "filepath",
