@@ -53,9 +53,3 @@ Les examens JSON sont automatiquement stockés dans le dossier : /exams
 
 Nathan Julien, Elio Lafaye de Micheaux, Charlotte Noé
 
-
-### Licence :
-
-Ce projet est distribué sous licence MIT :
-- vous pouvez utiliser, copier, modifier, fusionner, publier et distribuer le code
-- vous avez l'obligation de laisser la mention de copyright si vous réutilisez le code
