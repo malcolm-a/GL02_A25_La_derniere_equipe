@@ -1,7 +1,7 @@
 import chalk from "chalk";
 //typesValides = ["multiple_choice","true_false", "numeric", "short_answer", "matching", "essay", "description"];
 
-function getRandomInt(min = 0, max) { // min inclus, max exclus
+function getRandomInt(min, max) { // min inclus, max exclus
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
@@ -19,16 +19,16 @@ export function examSimulator(exam) {
     let list_answers = [];
     for (const q of exam.questions) {
         if (q.type === "multiple_choice") {
-            let nb = getRandomInt(q.choices.length); // on choisit une répnse aléatoire parmi les choix
+            let nb = getRandomInt(0, q.choices.length); // on choisit une réponse aléatoire parmi les choix
             list_answers.push(q.choices[nb]); // on ajoute cette réponse là 
 
         } else if (q.type === "true_false") {
             const tf = [true,false];
-            let ind = getRandomInt(2);
+            let ind = getRandomInt(0,2);
             list_answers.push(tf[ind]);
 
         } else if (q.type === "numeric") {
-            list_answers.push(getRandomInt(10)); // entier aléatoire entre 0 et 10
+            list_answers.push(getRandomInt(0,10)); // entier aléatoire entre 0 et 10
             
         } else if (q.type === "short_answer") {
             list_answers.push("Short answer here"); // pas faisable aléatoirement
@@ -73,7 +73,17 @@ export async function summaryExam(exam, list_answers) {
         for (let i = 0; i < list_answers.length; i++) {
             if (exam.questions[i].type === "multiple_choice") {
                 console.log(exam.questions[i].text + "\n");
-
+                console.log(chalk.yellow("Réponse sélectionnée: " + list_answers[i].text + "\n"))
+                if (list_answers[i].correct) {
+                    console.log(chalk.green("Correct\n"));
+                    score++;
+                } else {
+                    for (let c = 0; c < exam.questions[i].choices.length; c++) {
+                        if (exam.questions[i].choices[c].correct) {
+                            console.log(chalk.red("Incorrect: bonne réponse = " + exam.questions[i].choices[c].text + "\n"))
+                        }
+                    }
+                }
 
             } else if (exam.questions[i].type === "true_false") {
                 console.log(exam.questions[i].text + "\n");
@@ -133,7 +143,7 @@ export async function summaryExam(exam, list_answers) {
             }
         }
         console.log("===== Fin de simulation =====\n");
-        console.log("Score obtenu: " + score + " / " + exam.questions.length + " (les short answers et essays valent pour 0.5 et les desc pour 1\n");
+        console.log("Score obtenu: " + score + " / " + exam.questions.length + " (les short answers et essays valent pour 0.5 et les desc pour 1)\n");
     };
     
 };
