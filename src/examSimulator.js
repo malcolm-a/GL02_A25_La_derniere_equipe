@@ -8,10 +8,10 @@ function getRandomInt(min = 0, max) { //min inclus, max exclus
 
 export function examSimulator(exam) {
     let list_answers = [];
-    for (const q of exam.questions) {
+    for (let q of exam.questions) {
         if (q.type === "multiple_choice") {
             let nb = getRandomInt(q.choices.length); // on choisit une répnse aléatoire parmi les choix
-            list_answers.push(q.choices[nb]); // on ajoute que cette réponse là 
+            list_answers.push(q.choices[nb]); // on ajoute cette réponse là 
 
         } else if (q.type === "true_false") {
             const tf = [true,false];
@@ -34,11 +34,15 @@ export function examSimulator(exam) {
         }
 
     };
-    if (list_answers.length === exam.questions.length) {
-        return list_answers;
-    } else console.log("Erreur lors de la simulation de réponses");
+    return list_answers;
 };
 
-export function summaryExam(list_answers) {
+export function summaryExam(exam, list_answers) {
+    if (list_answers.length != exam.questions.length) {
+        console.log("Erreur lors de la simulation de réponses.");
+        return;
+    } else {
+        return;
+    };
     
 };
