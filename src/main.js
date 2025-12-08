@@ -92,9 +92,7 @@ async function main() {
       if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.")
       }else {
-        await summaryExam(currentExam, examSimulator(currentExam
-
-        )); // arguments: exam et list_answers renvoyée par examSimulator()
+        await summaryExam(currentExam, examSimulator(currentExam)); // arguments: exam et list_answers renvoyée par examSimulator()
       }
     } else if (action === "Générer un fichier d'identification au format VCard") {
       const teacher = await inquirer.prompt([
