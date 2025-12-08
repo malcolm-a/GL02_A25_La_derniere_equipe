@@ -30,8 +30,7 @@ npm install
 
 ### Utilisation:
 
-cd src
-
+cd src \n
 node main.js
 
 
@@ -48,7 +47,7 @@ Le programme propose un menu permettant de :
 - Comparer un examen avec un corpus
 - Sauvegarder / charger un examen
 
-Les examens JSON sont automatiquement stockés dans le dossier : /exams
+Les examens JSON sont automatiquement stockés dans le dossier : /exams \n
 Les profils généré en html sont automatiquement stockés dans le dossier : /html
 
 
