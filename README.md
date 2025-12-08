@@ -8,6 +8,8 @@ Ce projet propose une interface en ligne de commande permettant de :
 - Rechercher et afficher des questions
 - Créer un examen et gérer ses questions
 - Vérifier la validité d'un examen
+- Simuler un examen
+- Générer un fichier d'identification de l'enseignant (vCard)
 - Exporter un examen au format GIFT
 - Générer un profil statistique (HTML, graphe Vega-Lite)
 - Comparer un examen (GIFT) avec un corpus (GIFT)
@@ -35,18 +37,25 @@ cd src
 node main.js
 
 
+
+
 Le programme propose un menu permettant de :
-- Rechercher une question
-- Afficher une question
-- Créer un examen
 - Sélectionner un examen
+- Créer un examen
+- Afficher l'examen
+- Rechercher une question par mot-clé
+- Afficher une question par ID
 - Ajouter une question à l'examen courant
 - Retirer une question à l'examen courant
 - Vérifier un examen
+- Simuler l'examen
+- Sauvegarder l'examen
 - Exporter en GIFT
+- Charger un examen
 - Générer un profil statistique
 - Comparer un examen avec un corpus
-- Sauvegarder / charger un examen
+- Générer un fichier d'identification au format vCard
+
 
 Les examens JSON sont automatiquement stockés dans le dossier : /exams 
 
