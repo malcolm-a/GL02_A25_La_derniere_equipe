@@ -211,6 +211,7 @@ function parseAnswerBlock(id, format, text, block) {
             id,
             type: "essay",
             format,
+            
             text,
             choices: []
         };
