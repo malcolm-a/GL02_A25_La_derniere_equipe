@@ -40,21 +40,21 @@ async function main() {
       name: "action",
       message: "Que souhaitez-vous faire ?",
       choices: [
+         `Selectionner l'examen`,
+        "Créer un examen",
+        'Afficher l\'examen',
         'Rechercher une question par mot-clé',
         'Afficher une question par ID',
-        "Simuler l'examen",
-        "Générer un fichier d'identification au format VCard",
-        'Créer un examen',
-        `Selectionner l'examen`,
-        "Ajouter une question à l'examen",
-        "Retirer une question de l'examen",
-        "Afficher l'examen",
+        'Ajouter une question à l\'examen',
+        'Retirer une question de l\'examen',
         "Vérifier la validité de l'examen",
+        "Simuler l'examen",
+        `Sauvegarder l'examen`,
         "Exporter en gift l'examen",
+        `Charger un examen`,
         "Générer un profil statistique d'un examen",
         "Comparer les profils d'un examen avec corpus",
-        `Sauvegarder l'examen`,
-        `Charger un examen`,
+        "Générer un fichier d'identification au format VCard",
         'Quitter'
       ]
     });
@@ -89,10 +89,12 @@ async function main() {
       displayQuestion(bank, qid);
    
     } else if (action === "Simuler l'examen") {
-      if (!exam) {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.")
       }else {
-        await summaryExam(exam, examSimulator(exam)); // arguments: exam et list_answers renvoyée par examSimulator()
+        await summaryExam(currentExam, examSimulator(currentExam
+
+        )); // arguments: exam et list_answers renvoyée par examSimulator()
       }
     } else if (action === "Générer un fichier d'identification au format VCard") {
       const teacher = await inquirer.prompt([
