@@ -90,7 +90,8 @@ export function saveProfileChart(profile, path = "profil.html"){
     </body>
     </html>`;
 
-    fs.writeFileSync(path, html, "utf-8");
+    const filepath = "../html/"+path;
+    fs.writeFileSync(filepath, html, "utf-8");
     console.log("Graphique généré :" + path);
 }
 

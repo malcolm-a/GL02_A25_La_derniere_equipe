@@ -171,10 +171,14 @@ async function main() {
       if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
+        if (!verifExam(currentExam)){
+          console(verifExam(currentExam));
+          continue;
+        }
         const { filepath } = await inquirer.prompt({
         type : "input",
         name: "filepath",
-        message : "Sous quel nom voulez-ous enregister l'examen ? "
+        message : "Sous quel nom voulez-vous enregister l'examen ? "
         });
         const gift = examToGift(currentExam);
         const success = await saveGift(gift, filepath+".gift");
@@ -191,6 +195,10 @@ async function main() {
       if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
+        if (!verifExam(currentExam)){
+          console(verifExam(currentExam));
+          continue;
+        }
         const profile = computeExamProfile(currentExam);
         console.log("Profil généré");
         for (const [type, count] of Object.entries(profile.type)){
@@ -199,7 +207,7 @@ async function main() {
         const { filepath } = await inquirer.prompt({
         type : "input",
         name: "filepath",
-        message : "Sous quel nom voulez-ous enregister le profil ? "
+        message : "Sous quel nom voulez-vous enregister le profil ? "
         });
         saveProfileChart(profile, filepath+".html");
       }
@@ -262,6 +270,10 @@ async function main() {
       if (!currentExam){
         console.log("Vous devez d'abord créer un examen.");
       }else{
+        if (!verifExam(currentExam)){
+          console(verifExam(currentExam));
+          continue;
+        }
         const { filepath } = await inquirer.prompt({
         type : "input",
         name: "filepath",

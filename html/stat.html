@@ -1,0 +1,15 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    </head>
+    <body>
+    <div id="chart"></div>
+    <script>
+        vegaEmbed('#chart', {"$schema":"https://vega.github.io/schema/vega-lite/v5.json","description":"Profil de l'examen","data":{"values":[{"type":"description","count":5},{"type":"multiple_choice","count":4},{"type":"short_answer","count":6}]},"mark":"bar","encoding":{"x":{"field":"type","type":"nominal"},"y":{"field":"count","type":"quantitative"}}});
+    </script>
+    </body>
+    </html>
