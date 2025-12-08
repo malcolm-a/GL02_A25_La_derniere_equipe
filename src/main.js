@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import inquirer from "inquirer";
 import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
+import { examSimulator, summaryExam} from "./examSimulator.js";
 import { showError, showSuccess } from "./utils/show.js";
 import { generateVcard } from "./vcardGenerator.js";
 import {createExam, addQuestion, removeQuestion, displayExam, verifExam} from "./examManager.js";
@@ -41,6 +42,7 @@ async function main() {
       choices: [
         'Rechercher une question par mot-clé',
         'Afficher une question par ID',
+        "Simuler l'examen",
         "Générer un fichier d'identification au format VCard",
         'Créer un examen',
         `Selectionner l'examen`,
@@ -86,6 +88,12 @@ async function main() {
       });
       displayQuestion(bank, qid);
    
+    } else if (action === "Simuler l'examen") {
+      if (!exam) {
+        console.log("Vous devez d'abord créer un examen.")
+      }else {
+        await summaryExam(exam, examSimulator(exam)); // arguments: exam et list_answers renvoyée par examSimulator()
+      }
     } else if (action === "Générer un fichier d'identification au format VCard") {
       const teacher = await inquirer.prompt([
         {
