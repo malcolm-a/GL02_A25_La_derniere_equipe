@@ -1,7 +1,4 @@
-README - Projet GL02 - Sujet B
-Gestionnaire d'examens en ligne
-
-### Description: 
+# GIFT Exam Manager
 
 Ce projet propose une interface en ligne de commande permettant de :
 - Charger une banque de questions
@@ -16,27 +13,35 @@ Ce projet propose une interface en ligne de commande permettant de :
 - Sauvegarder et charger des examens JSON
 
 
-### Modules utilisés: 
 
-- inquirer 8.2.5
-- chalk
-- vega-lite
-- fs/promises
-- ES Modules
+## Installation:
 
+### Prérequis
 
-### Installation:
+Pour installer ce projet, vous aurez besoin de [Node.js](https://nodejs.org/en/download) qui vous fournira la commande `npm`. Node.js est un environnement d'exécution JavaScript disponible notamment sur macOS, Linux et Windows.
 
-npm install
+### Téléchargement du dépôt et des dépendances
 
+```bash
+git clone https://github.com/malcolm-a/GL02_A25_La_derniere_equipe.git
+cd GL02_A25_La_derniere_equipe
+npm i
+```
 
-### Utilisation:
+## Utilisation
 
-cd src 
+Pour lancer le programme, utilisez la commande suivante : 
 
-node main.js
+```bash
+npm start
+```
 
--------------------------------------------------------------
+Si vous voulez lancer les tests, utilisez la commande suivante :
+```bash
+npm test
+```
+
+### Fonctionnalités
 
 
 Le programme propose un menu permettant de :
@@ -57,13 +62,23 @@ Le programme propose un menu permettant de :
 - Générer un fichier d'identification au format vCard
 
 
-Les examens JSON sont automatiquement stockés dans le dossier : /exams 
+Les examens JSON sont automatiquement stockés dans le dossier : `/exams `
 
-Les profils généré en html sont automatiquement stockés dans le dossier : /html
+Les profils généré en html sont automatiquement stockés dans le dossier : `/html`
 
 
+### Démarrage
 
-### Contributeurs : 
+À la première utilisation, des données sont présentes dans le répertoire `SujetB_data`. Des examens sont disponibles dans le répertoire `exams`, ceux-ci vous permettront de tester les fonctionnalités du programme, à commencer par le chargement d'un examen : cela vous évite d'avoir à créer un examen vous-même afin de pouvoir commencer à tester les fonctionnalités du programme. Vous pourrez ensuite afficher l'examen, le vérifier, le simuler, le sauvegarder au format JSON ou au format GIFT, ajouter/retirer des questions et générer un profil statistique. 
 
-Nathan Julien, Elio Lafaye de Micheaux, Charlotte Noé
+______________________________
 
+## Contributeurs : 
+
+Les contributeurs du projet original duquel ce projet est forké sont :
+
+- Nathan Julien
+- Elio Lafaye de Micheaux
+- Charlotte Noé
+
+Les améliorations ultérieures ont été apportées par l'équipe **Macrosoft**.
