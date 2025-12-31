@@ -125,7 +125,7 @@ export async function saveGift(gift, path) {
         return false;
     }
     try {
-        const filepath = "./exams/" + path;
+        const filepath = "./out/exams/" + path;
         await fs.writeFile(filepath, gift, "utf8");
         console.log(`Fichier enregistré vers ${path}`)
         return true;

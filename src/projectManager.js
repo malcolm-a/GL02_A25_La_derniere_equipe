@@ -3,7 +3,7 @@ import { showError, showSuccess } from "./utils/show.js";
 
 export async function saveExam(exam, path) {
     try {
-        const filepath = "./exams/" + path;
+        const filepath = "./out/exams/" + path;
         const contenu = JSON.stringify(exam, null, 2);
         await fs.writeFile(filepath, contenu, "utf-8");
         showSuccess("Examen sauvegardé avec succès !");

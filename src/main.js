@@ -5,12 +5,12 @@ import { fileURLToPath } from "url";
 import inquirer from "inquirer";
 import chalk from "chalk";
 import { importBank, searchByKeyword, displayResults, displayQuestion } from "./questionBank.js";
-import { examSimulator, summaryExam} from "./examSimulator.js";
+import { examSimulator, summaryExam } from "./examSimulator.js";
 import { showError, showSuccess } from "./utils/show.js";
 import { generateVcard } from "./vcardGenerator.js";
-import {createExam, addQuestion, removeQuestion, displayExam, verifExam} from "./examManager.js";
-import {examToGift, saveGift} from "./giftExport.js";
-import {computeExamProfile, saveProfileChart, compareGift} from "./examProfiler.js";
+import { createExam, addQuestion, removeQuestion, displayExam, verifExam } from "./examManager.js";
+import { examToGift, saveGift } from "./giftExport.js";
+import { computeExamProfile, saveProfileChart, compareGift } from "./examProfiler.js";
 import { saveExam, loadExam } from "./projectManager.js";
 
 
@@ -31,7 +31,7 @@ async function main() {
 
   console.log("DEBUG: Nombre de questions chargées :", bank.questions.length);
   if (bank.questions.length > 0) {
-      console.log("DEBUG: Exemple de question 1 :", JSON.stringify(bank.questions[0], null, 2));
+    console.log("DEBUG: Exemple de question 1 :", JSON.stringify(bank.questions[0], null, 2));
   }
   // Attente des commandes de l'utilisateur 
   while (true) {
@@ -40,7 +40,7 @@ async function main() {
       name: "action",
       message: "Que souhaitez-vous faire ?",
       choices: [
-         `Selectionner l'examen`,
+        `Selectionner l'examen`,
         "Créer un examen",
         'Afficher l\'examen',
         'Rechercher une question par mot-clé',
@@ -60,7 +60,7 @@ async function main() {
     });
 
     //On recupère l'action de l'utilisateur
-   
+
     //Si l'utilisateur veut quitter, on termine le programme
 
     if (action === "Quitter") {
@@ -77,7 +77,7 @@ async function main() {
       });
       qtrouvee = searchByKeyword(bank, keyword);
       displayResults(qtrouvee);
-   
+
 
 
     } else if (action === "Afficher une question par ID") {
@@ -87,11 +87,11 @@ async function main() {
         message: "ID de la question (ex: q1) :"
       });
       displayQuestion(bank, qid);
-   
+
     } else if (action === "Simuler l'examen") {
       if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.")
-      }else {
+      } else {
         await summaryExam(currentExam, examSimulator(currentExam)); // arguments: exam et list_answers renvoyée par examSimulator()
       }
     } else if (action === "Générer un fichier d'identification au format VCard") {
@@ -120,40 +120,35 @@ async function main() {
           type: "input",
           name: "tel",
           message: "[Facultatif] Entrez votre numéro de téléphone:"
-        },
-        {
-          type: "input",
-          name: "filepath",
-          message: "Entrez le chemin vers le dossier sur lequel vous voulez enregistrer votre fichier. Veillez à ne pas faire de fautes:"
         }
       ]);
       await generateVcard(teacher);
 
 
-    } else if (action === "Créer un examen"){
+    } else if (action === "Créer un examen") {
       const { title } = await inquirer.prompt({
-        type : "input",
+        type: "input",
         name: "title",
-        message : "Titre de l'examen : "
+        message: "Titre de l'examen : "
       });
-      if (exams[title]){
+      if (exams[title]) {
         console.log("Un examen avec ce titre existe déjà !");
-      }else{
+      } else {
         const newExam = createExam(title);
         exams[title] = newExam;
         currentExam = newExam;
         console.log("Examen créé !");
       }
-      
-      
 
 
 
-    } else if (action === "Selectionner l'examen"){
-      
-      if (currentExam==null){
+
+
+    } else if (action === "Selectionner l'examen") {
+
+      if (currentExam == null) {
         console.log("Aucun examen disponible. Créez-en un d'abord.");
-      }else{
+      } else {
         const { selectedTitle } = await inquirer.prompt({
           type: "list",
           name: "selectedTitle",
@@ -162,180 +157,180 @@ async function main() {
         });
         currentExam = exams[selectedTitle];
       }
-      
-      
 
 
 
-    }else if (action === "Ajouter une question à l'examen"){
-      if (!currentExam){
+
+
+    } else if (action === "Ajouter une question à l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
+      } else {
         const { qid } = await inquirer.prompt({
-        type : "input",
-        name: "qid",
-        message : "ID de la question à ajouter : "
+          type: "input",
+          name: "qid",
+          message: "ID de la question à ajouter : "
         });
         const question = bank.questions.find(q => q.id === qid);
-        if (!question){
+        if (!question) {
           console.log("Question introuvable dans la banque.");
-        }else {
+        } else {
           addQuestion(currentExam, question);
         }
       }
 
 
 
-    }else if (action === "Retirer une question de l'examen"){
-      if (!currentExam){
+    } else if (action === "Retirer une question de l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
+      } else {
         const { qid } = await inquirer.prompt({
-        type : "input",
-        name: "qid",
-        message : "ID de la question à retirer : "
+          type: "input",
+          name: "qid",
+          message: "ID de la question à retirer : "
         });
         removeQuestion(currentExam, qid);
       }
 
 
 
-    }else if (action === "Afficher l'examen"){
-      if (!currentExam){
+    } else if (action === "Afficher l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
+      } else {
         displayExam(currentExam);
       }
 
 
-    }else if(action === "Vérifier la validité de l'examen"){
-      if (!currentExam){
+    } else if (action === "Vérifier la validité de l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
+      } else {
         verifExam(currentExam);
       }
 
 
-      
-    }else if(action === "Exporter en gift l'examen"){
-      if (!currentExam){
+
+    } else if (action === "Exporter en gift l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
-        if (!verifExam(currentExam)){
+      } else {
+        if (!verifExam(currentExam)) {
           console(verifExam(currentExam));
           continue;
         }
         const { filepath } = await inquirer.prompt({
-        type : "input",
-        name: "filepath",
-        message : "Sous quel nom voulez-vous enregister l'examen ? "
+          type: "input",
+          name: "filepath",
+          message: "Sous quel nom voulez-vous enregister l'examen ? "
         });
         const gift = examToGift(currentExam);
-        const success = await saveGift(gift, filepath+".gift");
-        if (success){
+        const success = await saveGift(gift, filepath + ".gift");
+        if (success) {
           console.log("Export terminé");
-        }else{
+        } else {
           console.log("Erreur");
         }
       }
 
 
 
-    }else if(action === "Générer un profil statistique d'un examen"){
-      if (!currentExam){
+    } else if (action === "Générer un profil statistique d'un examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
-        if (!verifExam(currentExam)){
+      } else {
+        if (!verifExam(currentExam)) {
           console(verifExam(currentExam));
           continue;
         }
         const profile = computeExamProfile(currentExam);
         console.log("Profil généré");
         const { filepath } = await inquirer.prompt({
-        type : "input",
-        name: "filepath",
-        message : "Sous quel nom voulez-vous enregister le profil ? "
+          type: "input",
+          name: "filepath",
+          message: "Sous quel nom voulez-vous enregister le profil ? "
         });
-        saveProfileChart(profile, filepath+".html");
+        saveProfileChart(profile, filepath + ".html");
       }
 
 
 
-    }else if(action === "Comparer les profils d'un examen avec corpus"){
-      
-        const examDir = path.join(__dirname, "../exams");
-        let fichiers;
+    } else if (action === "Comparer les profils d'un examen avec corpus") {
 
-        try {
-          fichiers = (await fs.readdir(examDir)).filter(f => f.endsWith(".gift"));
-        } catch {
-          console.log("Aucun dossier exams/ trouvé");
-          continue;
-        }      
+      const examDir = path.join(__dirname, "../out/exams");
+      let fichiers;
 
-        if (fichiers.length === 0){
-          console.log("Aucun examen sauvegardé");
-        }
-        const { selectedTitle } = await inquirer.prompt({
-          type: "list",
-          name: "selectedTitle",
-          message: `Choisissez l'examen à comparer :`,
-          choices: fichiers
-        });
+      try {
+        fichiers = (await fs.readdir(examDir)).filter(f => f.endsWith(".gift"));
+      } catch {
+        console.log("Aucun dossier exams/ trouvé");
+        continue;
+      }
 
-        const corpusDir = path.join(__dirname, "../SujetB_data");
-        let fichiersCorpus;
+      if (fichiers.length === 0) {
+        console.log("Aucun examen sauvegardé");
+      }
+      const { selectedTitle } = await inquirer.prompt({
+        type: "list",
+        name: "selectedTitle",
+        message: `Choisissez l'examen à comparer :`,
+        choices: fichiers
+      });
 
-        try {
-          fichiersCorpus = (await fs.readdir(corpusDir)).filter(f => f.endsWith(".gift"));
-        } catch {
-          console.log("Aucun dossier trouvé");
-          continue;
-        }      
+      const corpusDir = path.join(__dirname, "../SujetB_data");
+      let fichiersCorpus;
 
-        if (fichiersCorpus.length === 0){
-          console.log("Aucun examen sauvegardé");
-        }
-        const { selectedCorpus } = await inquirer.prompt({
-          type: "list",
-          name: "selectedCorpus",
-          message: `Choisissez le corpus à comparer :`,
-          choices: fichiersCorpus
-        });
+      try {
+        fichiersCorpus = (await fs.readdir(corpusDir)).filter(f => f.endsWith(".gift"));
+      } catch {
+        console.log("Aucun dossier trouvé");
+        continue;
+      }
 
-        const examPath = path.join(examDir, selectedTitle);
-        const corpusPath = path.join(corpusDir, selectedCorpus);
+      if (fichiersCorpus.length === 0) {
+        console.log("Aucun examen sauvegardé");
+      }
+      const { selectedCorpus } = await inquirer.prompt({
+        type: "list",
+        name: "selectedCorpus",
+        message: `Choisissez le corpus à comparer :`,
+        choices: fichiersCorpus
+      });
 
-        await compareGift(examPath, corpusPath);
+      const examPath = path.join(examDir, selectedTitle);
+      const corpusPath = path.join(corpusDir, selectedCorpus);
 
-        
-      
+      await compareGift(examPath, corpusPath);
 
 
 
-    }else if(action === "Sauvegarder l'examen"){
-      if (!currentExam){
+
+
+
+    } else if (action === "Sauvegarder l'examen") {
+      if (!currentExam) {
         console.log("Vous devez d'abord créer un examen.");
-      }else{
-        if (!verifExam(currentExam)){
+      } else {
+        if (!verifExam(currentExam)) {
           console(verifExam(currentExam));
           continue;
         }
         const { filepath } = await inquirer.prompt({
-        type : "input",
-        name: "filepath",
-        message : "Sous quel nom voulez-vous enregister l'examen ? "
-        }); 
-        const sauvegarde = await saveExam(currentExam, filepath+".json");
-        if (sauvegarde){
+          type: "input",
+          name: "filepath",
+          message: "Sous quel nom voulez-vous enregister l'examen ? "
+        });
+        const sauvegarde = await saveExam(currentExam, filepath + ".json");
+        if (sauvegarde) {
           console.log("Sauvegarde réussie");
         }
       }
 
 
-    }else if(action === "Charger un examen"){
-    
-      const examDir = path.join(__dirname, "../exams");
+    } else if (action === "Charger un examen") {
+
+      const examDir = path.join(__dirname, "../out/exams");
       let fichiers;
 
       try {
@@ -343,30 +338,30 @@ async function main() {
       } catch {
         console.log("Aucun dossier exams/ trouvé");
         continue;
-      }      
+      }
 
-      if (fichiers.length === 0){
+      if (fichiers.length === 0) {
         console.log("Aucun examen sauvegardé");
       }
 
       const { selectedFile } = await inquirer.prompt({
-          type: "list",
-          name: "selectedFile",
-          message: `Choisissez un examen à charger :`,
-          choices: fichiers
-        });
+        type: "list",
+        name: "selectedFile",
+        message: `Choisissez un examen à charger :`,
+        choices: fichiers
+      });
 
 
       const filepath = examDir + "/" + selectedFile;
       const charge = await loadExam(filepath);
 
-      if (charge){
+      if (charge) {
         exams[charge.titre] = charge;
         currentExam = charge;
         console.log("Examen chargé !");
       }
     }
-    
+
   }
 }
 
