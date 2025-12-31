@@ -136,8 +136,8 @@ export function compareProfiles(examProfile, corpusProfile) {
 
 export function displayComparaisonTable(results) {
     console.log("\n=== COMPARAISON EXAMEN / CORPUS ===\n");
-    console.log("Type        | Exam (%) | Corpus (%) | ∆ (pp)  | Histogramme");
-    console.log("---------------------------------------------------------------");
+    console.log("Type" + " ".repeat(12) + "| Exam (%) | Corpus (%) | ∆ (pp) | Histogramme");
+    console.log("-".repeat(80));
 
     for (const [type, data] of Object.entries(results.typeDifferent)) {
         const pExam = data.exam.toFixed(1);
@@ -145,14 +145,14 @@ export function displayComparaisonTable(results) {
         const pDiff = (data.diff).toFixed(1);
 
         let signe;
-        const barre = "■".repeat(Math.abs(Math.round(data.diff)));
+        const barre = "■".repeat(Math.abs(Math.round(data.diff) / 2));
         if (data.diff >= 0) {
             signe = "+";
         } else {
             signe = "-";
         }
 
-        console.log(`${type.padEnd(10)} | ${pExam.padStart(10)} | ${pCorpus.padStart(10)} | ${pDiff.padStart(10)} | ${signe}${barre}`);
+        console.log(`${type.padEnd(15)} | ${pExam.padStart(8)} | ${pCorpus.padStart(10)} | ${pDiff.padStart(6)} | ${signe}${barre}`);
     }
     console.log(`\nIndice de divergence L1 : ${results.divergence.toFixed(2)}`);
 }
