@@ -71,6 +71,15 @@ Les profils généré en html sont automatiquement stockés dans le dossier : `/
 
 À la première utilisation, des données sont présentes dans le répertoire `SujetB_data`. Des examens sont disponibles dans le répertoire `exams`, ceux-ci vous permettront de tester les fonctionnalités du programme, à commencer par le chargement d'un examen : cela vous évite d'avoir à créer un examen vous-même afin de pouvoir commencer à tester les fonctionnalités du programme. Vous pourrez ensuite afficher l'examen, le vérifier, le simuler, le sauvegarder au format JSON ou au format GIFT, ajouter/retirer des questions et générer un profil statistique. 
 
+## Style de code
+
+Ce projet utilise ESLint avec la configuration Prettier pour le formatage du code. Cela permet un style cohérent, lisible et universel. 
+
+Pour formater le code, utilisez la commande suivante :
+```bash
+npm run format
+```
+
 ______________________________
 
 ## Contributeurs : 
