@@ -8,14 +8,14 @@ export async function readFileUtf8(filepath) {
   return await fs.readFile(p, "utf8"); //readFile : lire le contenu du fichier en UTF-8 c'est à dire du texte lisible
 }
 
-
 export async function writeFileUtf8(filepath, content) {
   const p = path.resolve(filepath);
   await fs.writeFile(p, content, "utf8"); // écrit dans le fichier si le fichier existe il est écrasé sinon il est créé
 }
 
 // lire tous les fichiers d'un dossier avec une extension donnée
-export async function readDirFilesUtf8(dirOrFile, extFilter = null) { //extFilter : filtre par extension de fichier
+export async function readDirFilesUtf8(dirOrFile, extFilter = null) {
+  //extFilter : filtre par extension de fichier
 
   /*const files = await fs.readdir(dir, { withFileTypes: true }); //withFileTypes : obtenir des objets qui sait si l'entrée est un fichier ou un dossier
   const results = [];
@@ -52,14 +52,17 @@ export async function readDirFilesUtf8(dirOrFile, extFilter = null) { //extFilte
       if (f.isFile()) {
         const ext = path.extname(f.name).toLowerCase();
         if (!extFilter || ext === extFilter) {
-          const content = await fs.readFile(path.join(resolved, f.name), "utf8");
+          const content = await fs.readFile(
+            path.join(resolved, f.name),
+            "utf8",
+          );
           results.push({ filename: f.name, content });
         }
       }
     }
 
     return results;
-    } catch (err) {
+  } catch (err) {
     console.error("Erreur readDirFilesUtf8:", err.message);
     return [];
   }
