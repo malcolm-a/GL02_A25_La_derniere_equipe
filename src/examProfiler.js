@@ -1,7 +1,7 @@
 import fs from "fs";
 import { importBank } from "./questionBank.js";
 
-export function computeExamProfile(exam){
+export function computeExamProfile(exam) {
     const profile = {
         titre: exam.titre,
         total: exam.questions.length,
@@ -10,45 +10,45 @@ export function computeExamProfile(exam){
         pourcentage: {}
     };
 
-    for (const question of exam.questions){
+    for (const question of exam.questions) {
         const type = question.type;
-        if(!profile.type[type]){
+        if (!profile.type[type]) {
             profile.type[type] = 1;
-        }else{
+        } else {
             profile.type[type]++;
         }
 
-        if (type == "true_false" || type == "numeric" || type == "matching" || type == "short_answer" || type == "multiple_choice"){
+        if (type == "true_false" || type == "numeric" || type == "matching" || type == "short_answer" || type == "multiple_choice") {
             profile.autoCorrection++;
         }
     }
 
-    for (const [type, count] of Object.entries(profile.type)){
-        profile.pourcentage[type] = ((count/profile.total)*100).toFixed(1) + "%";
+    for (const [type, count] of Object.entries(profile.type)) {
+        profile.pourcentage[type] = ((count / profile.total) * 100).toFixed(1) + "%";
     }
 
     return profile;
 }
 
-function computeGiftProfile(questions){
+function computeGiftProfile(questions) {
     const profile = {
         total: questions.length,
         type: {},
         pourcentage: {}
     };
 
-    for (const question of questions){
+    for (const question of questions) {
         const type = question.type;
-        if(!profile.type[type]){
+        if (!profile.type[type]) {
             profile.type[type] = 1;
-        }else{
+        } else {
             profile.type[type]++;
         }
 
     }
 
-    for (const [type, count] of Object.entries(profile.type)){
-        profile.pourcentage[type] = ((count/profile.total)*100).toFixed(1) + "%";
+    for (const [type, count] of Object.entries(profile.type)) {
+        profile.pourcentage[type] = ((count / profile.total) * 100).toFixed(1) + "%";
     }
 
     return profile;
@@ -57,7 +57,7 @@ function computeGiftProfile(questions){
 
 
 
-export function saveProfileChart(profile, path = "profil.html"){
+export function saveProfileChart(profile, path = "profil.html") {
     const chart = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "description": "Profil de l'examen",
@@ -90,15 +90,15 @@ export function saveProfileChart(profile, path = "profil.html"){
     </body>
     </html>`;
 
-    const filepath = "../html/"+path;
+    const filepath = "./html/" + path;
     fs.writeFileSync(filepath, html, "utf-8");
     console.log("Graphique généré :" + path);
 }
 
 
 
-export function compareProfiles (examProfile, corpusProfile){
-    if (!examProfile || !corpusProfile){
+export function compareProfiles(examProfile, corpusProfile) {
+    if (!examProfile || !corpusProfile) {
         return null;
     }
 
@@ -115,13 +115,13 @@ export function compareProfiles (examProfile, corpusProfile){
         if (!types.includes(type)) types.push(type);
     }
 
-    for (const type of types){
+    for (const type of types) {
         const pExam = parseFloat(examProfile.pourcentage[type]) || 0;
         const pCorpus = parseFloat(corpusProfile.pourcentage[type]) || 0;
 
-        const diff = pExam-pCorpus;
+        const diff = pExam - pCorpus;
 
-        comparaison.typeDifferent[type]={
+        comparaison.typeDifferent[type] = {
             exam: pExam,
             corpus: pCorpus,
             diff: diff
@@ -131,25 +131,25 @@ export function compareProfiles (examProfile, corpusProfile){
     }
 
     return comparaison;
-    
+
 }
 
-export function displayComparaisonTable(results){
+export function displayComparaisonTable(results) {
     console.log("\n=== COMPARAISON EXAMEN / CORPUS ===\n");
     console.log("Type        | Exam (%) | Corpus (%) | ∆ (pp)  | Histogramme");
     console.log("---------------------------------------------------------------");
 
-    for (const [type, data] of Object.entries(results.typeDifferent)){
+    for (const [type, data] of Object.entries(results.typeDifferent)) {
         const pExam = data.exam.toFixed(1);
         const pCorpus = data.corpus.toFixed(1);
         const pDiff = (data.diff).toFixed(1);
 
         let signe;
         const barre = "■".repeat(Math.abs(Math.round(data.diff)));
-        if (data.diff >= 0){
+        if (data.diff >= 0) {
             signe = "+";
-        }else{
-            signe ="-";
+        } else {
+            signe = "-";
         }
 
         console.log(`${type.padEnd(10)} | ${pExam.padStart(10)} | ${pCorpus.padStart(10)} | ${pDiff.padStart(10)} | ${signe}${barre}`);
@@ -158,17 +158,17 @@ export function displayComparaisonTable(results){
 }
 
 
-export async function compareGift(examPath, corpusPath){
+export async function compareGift(examPath, corpusPath) {
     const examBank = await importBank(examPath);
     examBank.questions = examBank.questions.filter(q => q.text.trim() !== '');
-    if (!examBank || examBank.questions.length === 0){
+    if (!examBank || examBank.questions.length === 0) {
         throw new Error("Examen non valide.");
     }
-    
+
 
     const corpusBank = await importBank(corpusPath);
     corpusBank.questions = corpusBank.questions.filter(q => q.text.trim() !== '');
-    if (!corpusBank || corpusBank.questions.length === 0){
+    if (!corpusBank || corpusBank.questions.length === 0) {
         throw new Error("Corpus non valide.");
     }
 
