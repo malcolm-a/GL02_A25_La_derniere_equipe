@@ -4,7 +4,8 @@
   "type": "module",
   "main": "src/main.js",
   "dependencies": {
-    "inquirer": "^8.2.5"
+    "inquirer": "^8.2.5", 
+    "chalk": "^5.3.0" 
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
