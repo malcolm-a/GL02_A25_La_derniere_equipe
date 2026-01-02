@@ -11,7 +11,6 @@ import {
   displayQuestion,
 } from "./questionBank.js";
 import { examSimulator, summaryExam } from "./examSimulator.js";
-import { showError, showSuccess } from "./utils/show.js";
 import { generateVcard } from "./vcardGenerator.js";
 import {
   createExam,

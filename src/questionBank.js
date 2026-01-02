@@ -470,7 +470,7 @@ export function displayQuestion(bank, qid) {
   // SHORT ANSWER : q.answers
   if (q.type === "short_answer" && Array.isArray(q.answers)) {
     console.log("Réponses acceptées :");
-    q.answers.forEach((ans, i) => {
+    q.answers.forEach((ans) => {
       console.log(`  - ${ans.text}`);
       if (ans.feedback) console.log(`     -> Feedback: ${ans.feedback}`);
     });
