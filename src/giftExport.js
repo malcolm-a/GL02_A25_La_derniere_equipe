@@ -132,7 +132,7 @@ export async function saveGift(gift, path) {
     console.log(`Fichier enregistré vers ${path}`);
     return true;
   } catch (e) {
-    console.log("Erreur lors de la sauvegarde du fichier GIFT");
+    console.log(`Erreur lors de la sauvegarde du fichier GIFT: ${e}`);
     return false;
   }
 }
