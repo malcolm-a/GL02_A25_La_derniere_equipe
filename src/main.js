@@ -73,6 +73,7 @@ async function main() {
         "Générer un fichier d'identification au format VCard",
         "Quitter",
       ],
+      pageSize: 16,
     });
 
     //On recupère l'action de l'utilisateur
