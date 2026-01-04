@@ -14,18 +14,6 @@ Ce projet propose une interface en ligne de commande permettant de :
 
 ---
 
-## Table des matières
-
-- [Installation](#-installation)
-- [Utilisation](#-utilisation)
-- [Fonctionnalités](#-fonctionnalités)
-- [Structure du projet](#-structure-du-projet)
-- [Qualité du code](#-qualité-du-code)
-- [Contributeurs](#-contributeurs)
-
----
-
-
 ## Installation :
 
 ### Prérequis
@@ -63,27 +51,17 @@ npm test
 
 ### Fonctionnalités
 
-
 Le programme propose un menu interactif avec les fonctionnalités suivantes :
 
-- **Gestion de contenu**
-  - Recherche de questions par mot-clé ou par ID unique
-
-- **Édition d'examen**
-  - Ajout et suppression de questions dans un examen en cours
-
-- **Simulation & Vérification**
-  - Vérification de la conformité d'un examen
-  - Simulation d'une session de passage
-
-- **Export & Compatibilité**
-  - Sauvegarde au format **JSON**
-  - Export au format **GIFT** (compatible Moodle)
-  - Génération de fiches d'identification enseignant au format **vCard**
-
-- **Analyse de données**
-  - Comparaison avec un corpus existant
-  - Génération d'un profil statistique visuel (page HTML avec graphiques **Vega-Lite**)
+- Recherche de questions par mot-clé ou par ID unique
+- Ajout et suppression de questions dans un examen en cours
+- Vérification de la conformité d'un examen
+- Simulation d'une session de passage
+- Sauvegarde au format **JSON**
+- Export au format **GIFT** (compatible Moodle)
+- Génération de fiches d'identification enseignant au format **vCard**
+- Comparaison avec un corpus existant
+- Génération d'un profil statistique visuel (page HTML avec graphiques **Vega-Lite**)
 
 
 Les examens JSON sont automatiquement stockés dans le dossier : `out/exams `
