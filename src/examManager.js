@@ -14,7 +14,7 @@ export function addQuestion(exam, question) {
     console.log("Erreur : cette question est déjà présente dans l'examen.");
   } else {
     exam.questions.push(question);
-    console.log(`${question.id} questions ajoutée à l’examen ${exam.titre}.`);
+    console.log(`Question ${question.id} ajoutée à l'examen ${exam.titre}.`);
   }
 }
 
