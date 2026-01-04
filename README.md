@@ -10,23 +10,31 @@ Ce projet propose une interface en ligne de commande permettant de :
 - Exporter un examen au format GIFT
 - Générer un profil statistique (HTML, graphe Vega-Lite)
 - Comparer un examen (GIFT) avec un corpus (GIFT)
-- Sauvegarder et charger des examens JSON
+- Sauvegarder et charger des examens au format JSON
 
+---
 
-
-## Installation:
+## Installation :
 
 ### Prérequis
 
-Pour installer ce projet, vous aurez besoin de [Node.js](https://nodejs.org/en/download) qui vous fournira la commande `npm`. Node.js est un environnement d'exécution JavaScript disponible notamment sur macOS, Linux et Windows.
+Pour installer ce projet, vous aurez besoin de [Node.js](https://nodejs.org/en/download), qui fournit la commande `npm`.  
+Node.js est un environnement d'exécution JavaScript disponible sur macOS, Linux et Windows.
 
 ### Téléchargement du dépôt et des dépendances
 
 ```bash
+# Cloner le projet
 git clone https://github.com/malcolm-a/GL02_A25_La_derniere_equipe.git
+
+# Accéder au dossier
 cd GL02_A25_La_derniere_equipe
-npm i
+
+# Installer les dépendances
+npm install
 ```
+
+---
 
 ## Utilisation
 
@@ -43,33 +51,35 @@ npm test
 
 ### Fonctionnalités
 
+Le programme propose un menu interactif avec les fonctionnalités suivantes :
 
-Le programme propose un menu permettant de :
-- Sélectionner un examen
-- Créer un examen
-- Afficher l'examen
-- Rechercher une question par mot-clé
-- Afficher une question par ID
-- Ajouter une question à l'examen courant
-- Retirer une question à l'examen courant
-- Vérifier un examen
-- Simuler l'examen
-- Sauvegarder l'examen
-- Exporter en GIFT
-- Charger un examen
-- Générer un profil statistique
-- Comparer un examen avec un corpus
-- Générer un fichier d'identification au format vCard
+- Recherche de questions par mot-clé ou par ID unique
+- Ajout et suppression de questions dans un examen en cours
+- Vérification de la conformité d'un examen
+- Simulation d'une session de passage
+- Sauvegarde au format **JSON**
+- Export au format **GIFT** (compatible Moodle)
+- Génération de fiches d'identification enseignant au format **vCard**
+- Comparaison avec un corpus existant
+- Génération d'un profil statistique visuel (page HTML avec graphiques **Vega-Lite**)
 
 
-Les examens JSON sont automatiquement stockés dans le dossier : `/exams `
+Les examens JSON sont automatiquement stockés dans le dossier : `out/exams `
+Les profils générés en HTML sont automatiquement stockés dans le dossier : `out/html`
 
-Les profils généré en html sont automatiquement stockés dans le dossier : `/html`
 
+### Structure du projet
+
+- `out/exams/` – Fichiers d'examens au format JSON  
+- `out/html/` – Profils statistiques et graphiques générés  
+- `SujetB_data/` – Données sources et banques de questions initiales  
+- `src/` – Code source de l'application (logique métier, parseur GIFT, etc.)
 
 ### Démarrage
 
 À la première utilisation, des données sont présentes dans le répertoire `SujetB_data`. Des examens sont disponibles dans le répertoire `exams`, ceux-ci vous permettront de tester les fonctionnalités du programme, à commencer par le chargement d'un examen : cela vous évite d'avoir à créer un examen vous-même afin de pouvoir commencer à tester les fonctionnalités du programme. Vous pourrez ensuite afficher l'examen, le vérifier, le simuler, le sauvegarder au format JSON ou au format GIFT, ajouter/retirer des questions et générer un profil statistique. 
+
+---
 
 ## Style de code
 
@@ -80,7 +90,7 @@ Pour formater le code, utilisez la commande suivante :
 npm run format
 ```
 
-______________________________
+--- 
 
 ## Contributeurs : 
 
