@@ -50,7 +50,7 @@ export function verifExam(exam) {
       `Nombre insuffisant de questions : ${nbQuestion} (minimum requis : 15).`,
     );
   } else if (nbQuestion > 20) {
-    erreurs.push(`Trop de questions : ${nbQuestion} (maximum : 15).`);
+    erreurs.push(`Trop de questions : ${nbQuestion} (maximum : 20).`);
   }
 
   // Vérification des doublons
