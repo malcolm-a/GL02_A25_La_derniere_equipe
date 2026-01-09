@@ -41,12 +41,17 @@ async function main() {
   // Charger la banque
   const bank = await importBank(DEFAULT_BANK_PATH);
 
-  console.log("DEBUG: Nombre de questions chargées :", bank.questions.length);
-  if (bank.questions.length > 0) {
-    console.log(
-      "DEBUG: Exemple de question 1 :",
-      JSON.stringify(bank.questions[0], null, 2),
-    );
+  const DEBUG = process.env.DEBUG === "1";
+
+  if (DEBUG) {
+
+    console.log("DEBUG: Nombre de questions chargées :", bank.questions.length);
+    if (bank.questions.length > 0) {
+      console.log(
+        "DEBUG: Exemple de question 1 :",
+        JSON.stringify(bank.questions[0], null, 2),
+      );
+    }
   }
   // Attente des commandes de l'utilisateur
   while (true) {
