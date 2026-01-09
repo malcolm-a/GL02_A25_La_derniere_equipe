@@ -10,6 +10,7 @@ import { showError, showSuccess } from "./utils/show.js";
 function escapeVcard(value) {
   return value
     .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
     .replace(/;/g, "\\;")
     .replace(/,/g, "\\,")
     .replace(/\n/g, "\\n");
