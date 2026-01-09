@@ -76,10 +76,18 @@ export async function generateVcard(teacher) {
 
   const content = buildVcard(teacher);
 
-  const safeName = `${teacher.prenom}_${teacher.nom}`
-    .toLowerCase()
+  function formatFilenamePart(value) {
+  return value
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .replace(/[\u0300-\u036f]/g, "") // supprime les accents
+    .replace(/[^a-zA-Z0-9]/g, "")    // supprime caractères spéciaux
+    .replace(/^./, (c) => c.toUpperCase());
+}
+
+const safeName =
+  formatFilenamePart(teacher.prenom) +
+  formatFilenamePart(teacher.nom);
+
 
   const filename = `${safeName}.vcf`;
   const dirpath = path.join("./out/vcards");
